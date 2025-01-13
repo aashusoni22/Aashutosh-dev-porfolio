@@ -1,12 +1,11 @@
 import React, { useContext } from "react";
-import { motion } from "framer-motion";
 import { ThemeContext } from "../../context/ThemeContext";
 import {
   Github,
   Linkedin,
   Twitter,
   Mail,
-  ExternalLink,
+  ArrowUpRight,
   ArrowUp,
 } from "lucide-react";
 
@@ -43,32 +42,37 @@ const Footer = () => {
   };
 
   return (
-    <footer
-      className={`${
-        isDarkMode ? "bg-black text-zinc-400" : "bg-zinc-50 text-zinc-600"
-      } 
-      py-12 mt-20`}
-    >
-      <div className="max-w-7xl mx-auto px-6">
+    <footer className={`${isDarkMode ? "bg-black" : "bg-white"} pt-20 pb-10`}>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Section */}
-        <div
-          className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12 pb-12 
-          border-b border-zinc-200 dark:border-zinc-800"
-        >
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12 pb-12 border-b border-zinc-200 dark:border-zinc-800">
           {/* Brand Section */}
           <div className="space-y-4">
-            <motion.h2
-              whileHover={{ x: 2 }}
+            <h2
               className={`text-xl font-bold ${
                 isDarkMode ? "text-white" : "text-zinc-900"
               }`}
             >
               Aashutosh.
-            </motion.h2>
-            <p className="text-sm max-w-md">
-              Crafting digital experiences through clean code and thoughtful
-              design. Available for freelance work and collaborations.
+            </h2>
+            <p
+              className={`${
+                isDarkMode ? "text-zinc-400" : "text-zinc-600"
+              } text-sm max-w-md`}
+            >
+              Frontend developer crafting digital experiences through clean code
+              and thoughtful design. Available for freelance work and
+              collaborations.
             </p>
+            <a
+              href="#contact"
+              className={`inline-flex items-center text-sm font-medium gap-1 ${
+                isDarkMode ? "text-teal-400" : "text-teal-600"
+              } hover:gap-2 transition-all duration-200`}
+            >
+              <span>Get in touch</span>
+              <ArrowUpRight className="w-4 h-4" />
+            </a>
           </div>
 
           {/* Quick Links */}
@@ -82,15 +86,17 @@ const Footer = () => {
             </h3>
             <div className="grid grid-cols-2 gap-2">
               {footerLinks.map((link) => (
-                <motion.a
+                <a
                   key={link.href}
                   href={link.href}
-                  whileHover={{ x: 2 }}
-                  className="text-sm hover:text-blue-500 transition-colors duration-200 flex items-center space-x-1"
+                  className={`text-sm transform transition-all duration-200 ${
+                    isDarkMode
+                      ? "text-zinc-400 hover:text-teal-400 hover:translate-x-1"
+                      : "text-zinc-600 hover:text-teal-600 hover:translate-x-1"
+                  }`}
                 >
-                  <span>{link.label}</span>
-                  <ExternalLink size={12} />
-                </motion.a>
+                  {link.label}
+                </a>
               ))}
             </div>
           </div>
@@ -102,52 +108,59 @@ const Footer = () => {
                 isDarkMode ? "text-white" : "text-zinc-900"
               }`}
             >
-              Get in Touch
+              Connect
             </h3>
-            <div className="flex space-x-4">
+            <div className="flex gap-3">
               {socialLinks.map(({ icon: Icon, href, label }) => (
-                <motion.a
+                <a
                   key={href}
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  whileHover={{ y: -2 }}
-                  whileTap={{ y: 0 }}
-                  className="hover:text-blue-500 transition-colors duration-200"
+                  className={`p-2 rounded-lg transform transition-all duration-200 hover:-translate-y-1 ${
+                    isDarkMode
+                      ? "text-zinc-400 hover:text-white hover:bg-zinc-800"
+                      : "text-zinc-600 hover:text-zinc-900 hover:bg-zinc-100"
+                  }`}
                   aria-label={label}
                 >
-                  <Icon size={20} />
-                </motion.a>
+                  <Icon className="w-5 h-5" />
+                </a>
               ))}
             </div>
-            <p className="text-sm">
-              Email: your.email@example.com
-              <br />
-              Location: City, Country
-            </p>
+            <div
+              className={`text-sm ${
+                isDarkMode ? "text-zinc-400" : "text-zinc-600"
+              }`}
+            >
+              <p>your.email@example.com</p>
+              <p>San Francisco, CA</p>
+            </div>
           </div>
         </div>
 
         {/* Bottom Section */}
-        <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-          <p className="text-sm">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+          <p
+            className={`text-sm ${
+              isDarkMode ? "text-zinc-400" : "text-zinc-600"
+            }`}
+          >
             © {currentYear} Aashutosh. All rights reserved.
           </p>
 
-          <motion.button
+          <button
             onClick={scrollToTop}
-            whileHover={{ y: -2 }}
-            whileTap={{ y: 0 }}
-            className={`group flex items-center space-x-2 text-sm ${
-              isDarkMode ? "hover:text-white" : "hover:text-zinc-900"
-            } transition-colors duration-200`}
+            className={`group inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg 
+            transition-all duration-200 transform hover:-translate-y-1 ${
+              isDarkMode
+                ? "bg-zinc-900 text-zinc-400 hover:text-white ring-1 ring-zinc-800"
+                : "bg-zinc-50 text-zinc-600 hover:text-zinc-900 ring-1 ring-zinc-200"
+            }`}
           >
             <span>Back to top</span>
-            <ArrowUp
-              size={16}
-              className="group-hover:-translate-y-1 transition-transform duration-200"
-            />
-          </motion.button>
+            <ArrowUp className="w-4 h-4 transition-transform duration-200 group-hover:-translate-y-1" />
+          </button>
         </div>
       </div>
     </footer>
