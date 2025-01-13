@@ -1,0 +1,126 @@
+{
+  "featuredProjects": [
+    {
+      "id": "portfolio-website",
+      "title": "Modern Portfolio Website",
+      "description": "A personal portfolio website built with React and Framer Motion.",
+      "longDescription": "A modern, responsive portfolio website showcasing my work and skills. Features dark mode support, smooth animations, and a clean design aesthetic.",
+      "image": "/projects/portfolio.jpg",
+      "tech": [
+        "React",
+        "Tailwind CSS",
+        "Framer Motion",
+        "Dark Mode"
+      ],
+      "liveLink": "https://your-portfolio.com",
+      "githubLink": "https://github.com/yourusername/portfolio",
+      "featured": true,
+      "category": "Frontend",
+      "completionDate": "2024-01"
+    },
+    {
+      "id": "ecommerce-dashboard",
+      "title": "E-commerce Dashboard",
+      "description": "Admin dashboard for managing products and orders with analytics.",
+      "longDescription": "A comprehensive admin dashboard for e-commerce businesses. Includes real-time analytics, order management, and inventory tracking features.",
+      "image": "/projects/dashboard.jpg",
+      "tech": [
+        "Next.js",
+        "React Query",
+        "Charts",
+        "TypeScript"
+      ],
+      "liveLink": "https://dashboard-demo.com",
+      "githubLink": "https://github.com/yourusername/dashboard",
+      "featured": true,
+      "category": "Full Stack",
+      "completionDate": "2023-12"
+    },
+    {
+      "id": "weather-app",
+      "title": "Weather Application",
+      "description": "Real-time weather app with location-based forecasts and maps.",
+      "longDescription": "A weather application that provides real-time forecasts, interactive maps, and detailed weather information for any location worldwide.",
+      "image": "/projects/weather.jpg",
+      "tech": [
+        "React",
+        "Weather API",
+        "TypeScript",
+        "Mapbox"
+      ],
+      "liveLink": "https://weather-app.com",
+      "githubLink": "https://github.com/yourusername/weather",
+      "featured": true,
+      "category": "Frontend",
+      "completionDate": "2023-11"
+    },
+    {
+      "id": "task-management",
+      "title": "Task Management App",
+      "description": "Collaborative task management tool with real-time updates.",
+      "longDescription": "A real-time task management application designed for team collaboration. Features include task assignment, progress tracking, and team chat.",
+      "image": "/projects/tasks.jpg",
+      "tech": [
+        "React",
+        "Firebase",
+        "Material UI",
+        "Real-time DB"
+      ],
+      "liveLink": "https://task-app.com",
+      "githubLink": "https://github.com/yourusername/tasks",
+      "featured": true,
+      "category": "Full Stack",
+      "completionDate": "2023-10"
+    }
+  ],
+  "otherProjects": [
+    {
+      "id": "markdown-editor",
+      "title": "Markdown Editor",
+      "description": "Real-time markdown editor with preview and export options.",
+      "image": "/projects/markdown.jpg",
+      "tech": [
+        "React",
+        "Marked.js",
+        "CodeMirror"
+      ],
+      "githubLink": "https://github.com/yourusername/markdown-editor",
+      "featured": false,
+      "category": "Frontend",
+      "completionDate": "2023-09"
+    },
+    {
+      "id": "chat-application",
+      "title": "Real-time Chat App",
+      "description": "Instant messaging application with group chat support.",
+      "image": "/projects/chat.jpg",
+      "tech": [
+        "React",
+        "Socket.io",
+        "Express"
+      ],
+      "githubLink": "https://github.com/yourusername/chat-app",
+      "featured": false,
+      "category": "Full Stack",
+      "completionDate": "2023-08"
+    }
+  ],
+  "categories": [
+    {
+      "id": "all",
+      "name": "All Projects"
+    },
+    {
+      "id": "frontend",
+      "name": "Frontend"
+    },
+    {
+      "id": "full-stack",
+      "name": "Full Stack"
+    },
+    {
+      "id": "mobile",
+      "name": "Mobile Apps"
+    }
+  ]
+}
