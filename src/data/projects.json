@@ -1,77 +1,68 @@
 {
   "featuredProjects": [
     {
-      "id": "portfolio-website",
-      "title": "Modern Portfolio Website",
-      "description": "A personal portfolio website built with React and Framer Motion.",
-      "longDescription": "A modern, responsive portfolio website showcasing my work and skills. Features dark mode support, smooth animations, and a clean design aesthetic.",
-      "image": "/projects/portfolio.jpg",
-      "tech": [
-        "React",
-        "Tailwind CSS",
-        "Framer Motion",
-        "Dark Mode"
-      ],
-      "liveLink": "https://your-portfolio.com",
-      "githubLink": "https://github.com/yourusername/portfolio",
-      "featured": true,
-      "category": "Frontend",
-      "completionDate": "2024-01"
-    },
-    {
-      "id": "ecommerce-dashboard",
-      "title": "E-commerce Dashboard",
-      "description": "Admin dashboard for managing products and orders with analytics.",
-      "longDescription": "A comprehensive admin dashboard for e-commerce businesses. Includes real-time analytics, order management, and inventory tracking features.",
-      "image": "/projects/dashboard.jpg",
-      "tech": [
-        "Next.js",
-        "React Query",
-        "Charts",
-        "TypeScript"
-      ],
-      "liveLink": "https://dashboard-demo.com",
-      "githubLink": "https://github.com/yourusername/dashboard",
-      "featured": true,
-      "category": "Full Stack",
-      "completionDate": "2023-12"
-    },
-    {
-      "id": "weather-app",
-      "title": "Weather Application",
-      "description": "Real-time weather app with location-based forecasts and maps.",
-      "longDescription": "A weather application that provides real-time forecasts, interactive maps, and detailed weather information for any location worldwide.",
-      "image": "/projects/weather.jpg",
-      "tech": [
-        "React",
-        "Weather API",
-        "TypeScript",
-        "Mapbox"
-      ],
-      "liveLink": "https://weather-app.com",
-      "githubLink": "https://github.com/yourusername/weather",
-      "featured": true,
-      "category": "Frontend",
-      "completionDate": "2023-11"
-    },
-    {
-      "id": "task-management",
-      "title": "Task Management App",
-      "description": "Collaborative task management tool with real-time updates.",
-      "longDescription": "A real-time task management application designed for team collaboration. Features include task assignment, progress tracking, and team chat.",
-      "image": "/projects/tasks.jpg",
-      "tech": [
-        "React",
-        "Firebase",
-        "Material UI",
-        "Real-time DB"
-      ],
-      "liveLink": "https://task-app.com",
-      "githubLink": "https://github.com/yourusername/tasks",
-      "featured": true,
-      "category": "Full Stack",
-      "completionDate": "2023-10"
-    }
+    "id": "mconverter",
+    "title": "MConverter",
+    "description":
+      "A feature-rich markdown editor with real-time preview and cloud sync.",
+    "image": "src/assets/images/MConverter.png",
+    "tech": ["React", "Redux", "Firebase", "Tailwind", "Cloudinary", "Framer"],
+    "githubLink": "https://github.com/aashusoni22/MConverter",
+    "liveLink": "https://m-converter.vercel.app",
+    "category": "Frontend",
+    "features": [
+      "Real-time Preview",
+      "Cloud Sync",
+      "Dark Mode",
+      "Mobile Responsive"
+    ]
+  },
+  {
+    "id": "megablog",
+    "title": "MegaBlog",
+    "description": "A scalable blogging platform with real-time content updates and state management.",
+    "image": "src/assets/images/megablog.png",
+    "tech": [
+      "React",
+      "Appwrite",
+      "TinyMCE",
+      "HTML Parser",
+      "Redux Toolkit",
+      "Form Hook"
+    ],
+    "githubLink": "https://github.com/aashusoni22/megablog",
+    "liveLink": "https://megablog-psi.vercel.app/",
+    "category": "Frontend",
+    "features": [
+      "Backend Integration",
+      "State Management",
+      "Form Validation",
+      "Content Parsing"
+    ]
+  },
+ {
+  "id": "finansly",
+  "title": "Finansly",
+  "description": "A modern expense tracker with analytics dashboard and goal management features.",
+  "image": "src/assets/images/finansly.png",
+  "tech": [
+    "React",
+    "Redux",
+    "Recharts",
+    "Appwrite",
+    "Framer Motion",
+    "React Hook Form"
+  ],
+  "githubLink": "https://github.com/aashusoni22/finansly",
+  "liveLink": "https://finansly.vercel.app",
+  "category": "Full Stack",
+  "features": [
+    "Financial Analytics",
+    "Data Visualization",
+    "Goal Tracking",
+    "Budget Reports"
+    ]
+  }
   ],
   "otherProjects": [
     {

@@ -10,32 +10,50 @@ const Experience = () => {
 
   const experiences = [
     {
-      title: "Frontend Developer",
-      company: "Tech Solutions Inc",
+      title: "Technical Support Specialist",
+      company: "Transcom (Apple)",
       period: "2023 - Present",
       description:
-        "Leading frontend development for enterprise web applications, implementing modern React architectures and optimizing performance.",
-      skills: ["React", "TypeScript", "Next.js", "Redux", "Tailwind CSS"],
+        "Resolved complex technical issues for iOS and macOS systems with 95% customer satisfaction. Created technical documentation to improve team knowledge base. Identified and reported software bugs through internal ticketing systems.",
+      skills: [
+        "Technical Support",
+        "iOS Troubleshooting",
+        "Customer Service",
+        "Bug Reporting",
+        "Knowledge Base Management",
+      ],
       icon: Code,
       current: true,
     },
     {
-      title: "Web Developer",
-      company: "Digital Agency",
-      period: "2022 - 2023",
+      title: "Frontend Developer",
+      company: "Freelance",
+      period: "2023 - 2023",
       description:
-        "Developed responsive websites and web applications for various clients, focusing on user experience and performance optimization.",
-      skills: ["JavaScript", "React", "Node.js", "CSS3", "Webpack"],
+        "Built responsive web applications using React and Tailwind CSS for small businesses. Implemented user interfaces following design specifications and optimized website performance. Collaborated with clients to gather requirements and deliver solutions.",
+      skills: [
+        "React",
+        "JavaScript",
+        "Tailwind CSS",
+        "Git",
+        "Responsive Design",
+      ],
       icon: Wrench,
       current: false,
     },
     {
-      title: "Junior Developer",
-      company: "StartUp Hub",
+      title: "IT Support Specialist",
+      company: "Foundever (Intuit)",
       period: "2021 - 2022",
       description:
-        "Collaborated on building MVPs for startups, gaining hands-on experience with modern web technologies and agile development.",
-      skills: ["HTML5", "CSS3", "JavaScript", "React", "Git"],
+        "Provided technical support for Profile (software) users, maintaining a 90% first-call resolution rate. Documented common issues and solutions in the internal knowledge base. Collaborated with team members to improve support processes.",
+      skills: [
+        "Technical Support",
+        "Profile software",
+        "Problem Solving",
+        "Documentation",
+        "Customer Service",
+      ],
       icon: Building2,
       current: false,
     },
@@ -43,7 +61,7 @@ const Experience = () => {
 
   return (
     <LazyMotion features={domAnimation}>
-      <section className={`${isDarkMode ? "bg-black" : "bg-white"} py-20`}>
+      <section className={`${isDarkMode ? "bg-black" : "bg-white"}`}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             variants={staggerContainer(0.1, 0)}
@@ -165,7 +183,7 @@ const Experience = () => {
                           <motion.span
                             key={skill}
                             variants={fadeIn("up", 0)}
-                            className={`px-3 py-1 rounded-full text-sm ${
+                            className={`px-3 py-1 rounded-full text-[12px] ${
                               isDarkMode
                                 ? "bg-zinc-800 text-teal-400 ring-1 ring-zinc-700"
                                 : "bg-zinc-100 text-teal-600"

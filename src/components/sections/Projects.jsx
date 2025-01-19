@@ -21,7 +21,7 @@ const ProjectCard = ({ project, isDarkMode }) => {
         }`}
       >
         {/* Project Image */}
-        <div className="relative aspect-[2/1] overflow-hidden">
+        <div className="relative aspect-[16/9] overflow-hidden">
           <img
             src={project.image}
             alt={project.title}
@@ -40,6 +40,7 @@ const ProjectCard = ({ project, isDarkMode }) => {
                     ? "bg-zinc-900 text-teal-400 hover:bg-zinc-800"
                     : "bg-white/90 text-teal-600 hover:bg-white"
                 }`}
+                aria-label={`View ${project.title} on GitHub`}
               >
                 <Github className="w-4 h-4" />
               </a>
@@ -54,6 +55,7 @@ const ProjectCard = ({ project, isDarkMode }) => {
                     ? "bg-zinc-900 text-teal-400 hover:bg-zinc-800"
                     : "bg-white/90 text-teal-600 hover:bg-white"
                 }`}
+                aria-label={`View live demo of ${project.title}`}
               >
                 <ExternalLink className="w-4 h-4" />
               </a>
@@ -62,17 +64,28 @@ const ProjectCard = ({ project, isDarkMode }) => {
         </div>
 
         {/* Project Info */}
-        <div className="p-5 space-y-3">
+        <div className="p-4 space-y-3">
           <div>
-            <h3
-              className={`text-base font-medium group-hover:text-teal-500 transition-colors ${
-                isDarkMode ? "text-white" : "text-zinc-900"
-              }`}
-            >
-              {project.title}
-            </h3>
+            <div className="flex justify-between items-center">
+              <h3
+                className={`text-base font-medium group-hover:text-teal-500 transition-colors ${
+                  isDarkMode ? "text-white" : "text-zinc-900"
+                }`}
+              >
+                {project.title}
+              </h3>
+              <span
+                className={`text-xs px-2 py-0.5 rounded-full ${
+                  isDarkMode
+                    ? "bg-zinc-800 text-teal-400"
+                    : "bg-teal-50 text-teal-700"
+                }`}
+              >
+                {project.category}
+              </span>
+            </div>
             <p
-              className={`mt-1 text-sm ${
+              className={`mt-2 text-sm ${
                 isDarkMode ? "text-zinc-400" : "text-zinc-600"
               }`}
             >
@@ -80,8 +93,9 @@ const ProjectCard = ({ project, isDarkMode }) => {
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-1.5 pt-1">
-            {project.tech.map((tech) => (
+          {/* Technologies */}
+          <div className="flex flex-wrap gap-1.5">
+            {project.tech.slice(0, 5).map((tech) => (
               <span
                 key={tech}
                 className={`px-2 py-0.5 text-xs rounded-full transition-colors ${
@@ -93,6 +107,22 @@ const ProjectCard = ({ project, isDarkMode }) => {
                 {tech}
               </span>
             ))}
+          </div>
+
+          {/* Features */}
+          <div className="pt-2">
+            <ul className="grid grid-cols-2 gap-1">
+              {project.features.map((feature) => (
+                <li
+                  key={feature}
+                  className={`text-xs ${
+                    isDarkMode ? "text-zinc-400" : "text-zinc-600"
+                  }`}
+                >
+                  • {feature}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>
@@ -116,6 +146,7 @@ const Projects = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
             className="space-y-4"
           >
             <span
@@ -140,18 +171,20 @@ const Projects = () => {
                 isDarkMode ? "text-zinc-400" : "text-zinc-600"
               }`}
             >
-              A selection of my recent development projects and experiments.
+              A selection of my recent full-stack applications and frontend
+              projects.
             </p>
           </motion.div>
 
-          {/* Projects Grid */}
-          <div className="grid sm:grid-cols-2 gap-6">
+          {/* Projects Grid - 3 columns on large screens */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {featuredProjects.map((project, index) => (
               <motion.div
-                key={project.title}
+                key={project.id}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
               >
                 <ProjectCard project={project} isDarkMode={isDarkMode} />
               </motion.div>
@@ -163,6 +196,7 @@ const Projects = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
             className="flex justify-center pt-4"
           >
             <a

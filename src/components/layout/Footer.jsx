@@ -16,18 +16,13 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: Github, href: "https://github.com/yourusername", label: "GitHub" },
+    { icon: Github, href: "https://github.com/aashusoni22", label: "GitHub" },
     {
       icon: Linkedin,
-      href: "https://linkedin.com/in/yourusername",
+      href: "https://www.linkedin.com/in/aashutosh-soni-225a12177",
       label: "LinkedIn",
     },
-    {
-      icon: Twitter,
-      href: "https://twitter.com/yourusername",
-      label: "Twitter",
-    },
-    { icon: Mail, href: "mailto:your.email@example.com", label: "Email" },
+    { icon: Mail, href: "mailto:omsoni051@gmailcom", label: "Email" },
   ];
 
   const footerLinks = [
@@ -133,8 +128,8 @@ const Footer = () => {
                 isDarkMode ? "text-zinc-400" : "text-zinc-600"
               }`}
             >
-              <p>your.email@example.com</p>
-              <p>San Francisco, CA</p>
+              <p>omsoni051@gmail.com</p>
+              <p>Toronto, Canada</p>
             </div>
           </div>
         </div>

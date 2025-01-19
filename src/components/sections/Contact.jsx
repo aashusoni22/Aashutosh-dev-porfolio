@@ -13,20 +13,20 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email",
-      value: "hello@example.com",
-      href: "mailto:hello@example.com",
+      value: "omsoni051@gmail.com",
+      href: "mailto:omsoni051@gmail.com",
     },
     {
       icon: MessageSquare,
       title: "Discord",
-      value: "@username",
-      href: "#",
+      value: "@aashu_code",
+      href: "https://discord.com/users/aashu_code",
     },
     {
       icon: MapPin,
       title: "Location",
-      value: "San Francisco, CA",
-      href: "#",
+      value: "Toronto, Canada",
+      href: null,
     },
   ];
 
@@ -36,7 +36,6 @@ const Contact = () => {
     setSubmitStatus({ type: "", message: "" });
 
     try {
-      // Simulate form submission delay
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
       setSubmitStatus({
@@ -112,6 +111,7 @@ const Contact = () => {
                       ? "bg-zinc-900/50 ring-1 ring-zinc-800 hover:bg-zinc-900"
                       : "bg-zinc-50 ring-1 ring-zinc-200 hover:bg-zinc-100"
                   } transition-colors`}
+                  target="_blank"
                 >
                   <div
                     className={`p-2 rounded-lg ${

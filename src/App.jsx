@@ -6,7 +6,6 @@ import About from "./components/sections/About";
 import Projects from "./components/sections/Projects";
 import Contact from "./components/sections/Contact";
 import Experience from "./components/sections/Experience";
-import Skills from "./components/sections/Skills";
 
 const App = () => {
   const { theme } = useContext(ThemeContext);
@@ -39,11 +38,6 @@ const App = () => {
           {/* Projects section */}
           <section id="projects" className="py-20">
             <Projects />
-          </section>
-
-          {/* Skills section */}
-          <section id="projects" className="py-20">
-            <Skills />
           </section>
 
           {/* Contact section */}

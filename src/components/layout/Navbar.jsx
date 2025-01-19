@@ -8,15 +8,14 @@ const navItems = [
   { href: "#about", label: "About" },
   { href: "#experience", label: "Experience" },
   { href: "#projects", label: "Projects" },
-  { href: "#skills", label: "Skills" },
   { href: "#contact", label: "Contact" },
 ];
 
 const socialLinks = [
-  { icon: Github, href: "https://github.com/yourusername", label: "GitHub" },
+  { icon: Github, href: "https://github.com/aashusoni22", label: "GitHub" },
   {
     icon: Linkedin,
-    href: "https://linkedin.com/in/yourusername",
+    href: "https://www.linkedin.com/in/aashutosh-soni-225a12177/",
     label: "LinkedIn",
   },
 ];
