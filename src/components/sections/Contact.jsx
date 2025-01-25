@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { motion } from "framer-motion";
 import { ThemeContext } from "../../context/ThemeContext";
-import { Mail, MessageSquare, MapPin, Send, Loader } from "lucide-react";
+import { Mail, MapPin, Send, Loader, Linkedin } from "lucide-react";
 
 const Contact = () => {
   const { theme } = useContext(ThemeContext);
@@ -17,10 +17,10 @@ const Contact = () => {
       href: "mailto:omsoni051@gmail.com",
     },
     {
-      icon: MessageSquare,
-      title: "Discord",
-      value: "@aashu_code",
-      href: "https://discord.com/users/aashu_code",
+      icon: Linkedin,
+      title: "LinkedIn",
+      value: "@aashutosh-soni-225a12177",
+      href: "https://www.linkedin.com/in/aashutosh-soni-225a12177/",
     },
     {
       icon: MapPin,

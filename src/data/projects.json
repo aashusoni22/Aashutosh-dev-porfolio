@@ -58,38 +58,7 @@
 }
 
   ],
-  "otherProjects": [
-    {
-      "id": "markdown-editor",
-      "title": "Markdown Editor",
-      "description": "Real-time markdown editor with preview and export options.",
-      "image": "/projects/markdown.jpg",
-      "tech": [
-        "React",
-        "Marked.js",
-        "CodeMirror"
-      ],
-      "githubLink": "https://github.com/yourusername/markdown-editor",
-      "featured": false,
-      "category": "Frontend",
-      "completionDate": "2023-09"
-    },
-    {
-      "id": "chat-application",
-      "title": "Real-time Chat App",
-      "description": "Instant messaging application with group chat support.",
-      "image": "/projects/chat.jpg",
-      "tech": [
-        "React",
-        "Socket.io",
-        "Express"
-      ],
-      "githubLink": "https://github.com/yourusername/chat-app",
-      "featured": false,
-      "category": "Full Stack",
-      "completionDate": "2023-08"
-    }
-  ],
+
   "categories": [
     {
       "id": "all",
