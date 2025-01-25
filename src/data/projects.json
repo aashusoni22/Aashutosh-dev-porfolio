@@ -5,11 +5,11 @@
     "title": "MConverter",
     "description":
       "A feature-rich markdown editor with real-time preview and cloud sync.",
-    "image": "src/assets/images/MConverter.png",
+    "image": "/mconverter.png",
     "tech": ["React", "Redux", "Firebase", "Tailwind", "Cloudinary", "Framer"],
     "githubLink": "https://github.com/aashusoni22/MConverter",
     "liveLink": "https://m-converter.vercel.app",
-    "category": "Frontend",
+    "category": "Frontend - Desktop",
     "features": [
       "Real-time Preview",
       "Cloud Sync",
@@ -21,7 +21,7 @@
     "id": "megablog",
     "title": "MegaBlog",
     "description": "A scalable blogging platform with real-time content updates and state management.",
-    "image": "src/assets/images/megablog.png",
+    "image": "/megablog.png",
     "tech": [
       "React",
       "Appwrite",
@@ -32,7 +32,7 @@
     ],
     "githubLink": "https://github.com/aashusoni22/megablog",
     "liveLink": "https://megablog-psi.vercel.app/",
-    "category": "Frontend",
+    "category": "Frontend - Desktop & Mobile",
     "features": [
       "Backend Integration",
       "State Management",
@@ -40,29 +40,23 @@
       "Content Parsing"
     ]
   },
- {
-  "id": "finansly",
-  "title": "Finansly",
-  "description": "A modern expense tracker with analytics dashboard and goal management features.",
-  "image": "src/assets/images/finansly.png",
-  "tech": [
-    "React",
-    "Redux",
-    "Recharts",
-    "Appwrite",
-    "Framer Motion",
-    "React Hook Form"
-  ],
-  "githubLink": "https://github.com/aashusoni22/finansly",
-  "liveLink": "https://finansly.vercel.app",
-  "category": "Full Stack",
+{
+  "id": "wealthwise",
+  "title": "WealthWise",
+  "description": "A modern platform to manage finances, set goals, and make smarter financial decisions.",
+  "image": "/wealthwise.png",
+  "tech": ["React", "TailwindCSS", "Recharts", "Appwrite", "React Forms"],
+  "githubLink": "https://github.com/aashusoni22/wealthwise",
+  "liveLink": "https://wealthwise-eta.vercel.app/",
+  "category": "Frontend - Desktop & Mobile",
   "features": [
-    "Financial Analytics",
-    "Data Visualization",
-    "Goal Tracking",
-    "Budget Reports"
-    ]
-  }
+    "Financial Dashboard",
+    "Smart Calculators",
+    "Expense Management",
+    "Goal Tracking"
+  ]
+}
+
   ],
   "otherProjects": [
     {

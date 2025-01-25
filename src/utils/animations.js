@@ -1,4 +1,3 @@
-// Optimized fade in animation
 export const fadeIn = (direction, delay = 0) => ({
   hidden: {
     y: direction === "up" ? 20 : direction === "down" ? -20 : 0,
