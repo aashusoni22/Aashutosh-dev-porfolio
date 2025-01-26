@@ -19,8 +19,8 @@ const Contact = () => {
     {
       icon: Linkedin,
       title: "LinkedIn",
-      value: "@aashutosh-soni-225a12177",
-      href: "https://www.linkedin.com/in/aashutosh-soni-225a12177/",
+      value: "@aashutoshs",
+      href: "https://www.linkedin.com/in/aashutoshs/",
     },
     {
       icon: MapPin,

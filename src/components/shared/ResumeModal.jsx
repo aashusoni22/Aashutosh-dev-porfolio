@@ -39,7 +39,6 @@ const ResumeModal = ({ isOpen, onClose, isDarkMode }) => {
               >
                 Resume
               </h3>
-
               <button
                 onClick={onClose}
                 className={`p-1.5 rounded-lg transition-colors ${
@@ -52,21 +51,22 @@ const ResumeModal = ({ isOpen, onClose, isDarkMode }) => {
               </button>
             </div>
 
-            {/* Resume Preview Content */}
+            {/* Resume Content */}
             <div className="p-6 space-y-8">
+              {/* Header */}
               <div className="space-y-4">
                 <h1
                   className={`text-3xl font-bold ${
                     isDarkMode ? "text-white" : "text-zinc-900"
                   }`}
                 >
-                  Aashutosh
+                  Aashutosh Soni
                 </h1>
                 <div className="flex flex-wrap gap-3 text-sm">
                   <span
                     className={isDarkMode ? "text-zinc-300" : "text-zinc-700"}
                   >
-                    Frontend Developer
+                    Toronto, Canada
                   </span>
                   <span
                     className={isDarkMode ? "text-zinc-300" : "text-zinc-700"}
@@ -74,29 +74,25 @@ const ResumeModal = ({ isOpen, onClose, isDarkMode }) => {
                     •
                   </span>
                   <a
-                    href="mailto:hello@example.com"
+                    href="mailto:omsoni051@gmail.com"
                     className="text-teal-500 hover:underline"
                   >
-                    hello@example.com
+                    omsoni051@gmail.com
+                  </a>
+                  <span
+                    className={isDarkMode ? "text-zinc-300" : "text-zinc-700"}
+                  >
+                    •
+                  </span>
+                  <a
+                    href="https://github.com/aashutosh"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-teal-500 hover:underline"
+                  >
+                    GitHub
                   </a>
                 </div>
-              </div>
-
-              {/* Summary */}
-              <div className="space-y-2">
-                <h2
-                  className={`text-xl font-semibold ${
-                    isDarkMode ? "text-white" : "text-zinc-900"
-                  }`}
-                >
-                  Summary
-                </h2>
-                <p className={isDarkMode ? "text-zinc-300" : "text-zinc-700"}>
-                  Frontend Developer with expertise in building modern web
-                  applications using React and cutting-edge technologies.
-                  Focused on creating intuitive user experiences with clean,
-                  performant code.
-                </p>
               </div>
 
               {/* Technical Skills */}
@@ -111,14 +107,15 @@ const ResumeModal = ({ isOpen, onClose, isDarkMode }) => {
                 <div className="flex flex-wrap gap-2">
                   {[
                     "React.js",
-                    "TypeScript",
-                    "Next.js",
-                    "Tailwind CSS",
+                    "JavaScript (ES6+)",
                     "Redux",
-                    "RESTful APIs",
-                    "GraphQL",
-                    "Framer Motion",
-                    "Material UI",
+                    "Tailwind CSS",
+                    "Firebase",
+                    "Appwrite",
+                    "Node.js",
+                    "MongoDB",
+                    "Git",
+                    "REST APIs",
                   ].map((skill) => (
                     <span
                       key={skill}
@@ -134,6 +131,129 @@ const ResumeModal = ({ isOpen, onClose, isDarkMode }) => {
                 </div>
               </div>
 
+              {/* Projects */}
+              <div className="space-y-6">
+                <h2
+                  className={`text-xl font-semibold ${
+                    isDarkMode ? "text-white" : "text-zinc-900"
+                  }`}
+                >
+                  Featured Projects
+                </h2>
+                <div className="space-y-6">
+                  {/* WealthWise */}
+                  <div
+                    className={`p-4 rounded-xl ${
+                      isDarkMode
+                        ? "bg-zinc-800/50 ring-1 ring-zinc-700"
+                        : "bg-zinc-100"
+                    }`}
+                  >
+                    <div className="flex justify-between items-start">
+                      <h3
+                        className={`font-medium ${
+                          isDarkMode ? "text-white" : "text-zinc-900"
+                        }`}
+                      >
+                        WealthWise
+                      </h3>
+                      <div className="flex gap-2">
+                        <a
+                          href="#"
+                          className="text-teal-500 hover:underline text-sm"
+                        >
+                          GitHub
+                        </a>
+                        <a
+                          href="#"
+                          className="text-teal-500 hover:underline text-sm"
+                        >
+                          Live Demo
+                        </a>
+                      </div>
+                    </div>
+                    <p
+                      className={`text-sm mt-2 ${
+                        isDarkMode ? "text-zinc-300" : "text-zinc-700"
+                      }`}
+                    >
+                      React.js, TailwindCSS, Recharts, Appwrite, React Forms
+                    </p>
+                    <ul
+                      className={`list-disc list-inside space-y-1 text-sm mt-3 ${
+                        isDarkMode ? "text-zinc-300" : "text-zinc-700"
+                      }`}
+                    >
+                      <li>
+                        Architected and developed full-stack financial
+                        management dashboard
+                      </li>
+                      <li>
+                        Implemented real-time data visualization using Recharts
+                      </li>
+                      <li>
+                        Achieved 95% performance score on Google Lighthouse
+                      </li>
+                    </ul>
+                  </div>
+
+                  {/* MConverter */}
+                  <div
+                    className={`p-4 rounded-xl ${
+                      isDarkMode
+                        ? "bg-zinc-800/50 ring-1 ring-zinc-700"
+                        : "bg-zinc-100"
+                    }`}
+                  >
+                    <div className="flex justify-between items-start">
+                      <h3
+                        className={`font-medium ${
+                          isDarkMode ? "text-white" : "text-zinc-900"
+                        }`}
+                      >
+                        MConverter
+                      </h3>
+                      <div className="flex gap-2">
+                        <a
+                          href="#"
+                          className="text-teal-500 hover:underline text-sm"
+                        >
+                          GitHub
+                        </a>
+                        <a
+                          href="#"
+                          className="text-teal-500 hover:underline text-sm"
+                        >
+                          Live Demo
+                        </a>
+                      </div>
+                    </div>
+                    <p
+                      className={`text-sm mt-2 ${
+                        isDarkMode ? "text-zinc-300" : "text-zinc-700"
+                      }`}
+                    >
+                      React.js, Redux, Firebase, Tailwind CSS, Cloudinary,
+                      Framer
+                    </p>
+                    <ul
+                      className={`list-disc list-inside space-y-1 text-sm mt-3 ${
+                        isDarkMode ? "text-zinc-300" : "text-zinc-700"
+                      }`}
+                    >
+                      <li>
+                        Developed real-time markdown editor with preview
+                        functionality
+                      </li>
+                      <li>
+                        Implemented cloud synchronization for data persistence
+                      </li>
+                      <li>Integrated Cloudinary for asset management</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
               {/* Experience */}
               <div className="space-y-6">
                 <h2
@@ -143,8 +263,46 @@ const ResumeModal = ({ isOpen, onClose, isDarkMode }) => {
                 >
                   Experience
                 </h2>
+                {/* Technical Support Specialist */}
+                <div className="space-y-2">
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <h3
+                        className={`font-medium ${
+                          isDarkMode ? "text-white" : "text-zinc-900"
+                        }`}
+                      >
+                        Technical Support Specialist
+                      </h3>
+                      <p className="text-teal-500">Transcom (Apple)</p>
+                    </div>
+                    <span
+                      className={`text-sm ${
+                        isDarkMode ? "text-zinc-400" : "text-zinc-600"
+                      }`}
+                    >
+                      Feb 2024 - Present
+                    </span>
+                  </div>
+                  <ul
+                    className={`list-disc list-inside space-y-1 text-sm ${
+                      isDarkMode ? "text-zinc-300" : "text-zinc-700"
+                    }`}
+                  >
+                    <li>
+                      Resolved 150+ technical issues weekly with 95%
+                      satisfaction rate
+                    </li>
+                    <li>
+                      Implemented structured problem-solving methodologies
+                    </li>
+                    <li>
+                      Collaborated with development teams on software defects
+                    </li>
+                  </ul>
+                </div>
 
-                {/* Current Role */}
+                {/* Frontend Developer */}
                 <div className="space-y-2">
                   <div className="flex justify-between items-start">
                     <div>
@@ -155,14 +313,14 @@ const ResumeModal = ({ isOpen, onClose, isDarkMode }) => {
                       >
                         Frontend Developer
                       </h3>
-                      <p className="text-teal-500">Tech Solutions Inc</p>
+                      <p className="text-teal-500">CJ Jewellers (Freelance)</p>
                     </div>
                     <span
                       className={`text-sm ${
                         isDarkMode ? "text-zinc-400" : "text-zinc-600"
                       }`}
                     >
-                      2023 - Present
+                      May 2024 - Jul 2024
                     </span>
                   </div>
                   <ul
@@ -171,20 +329,16 @@ const ResumeModal = ({ isOpen, onClose, isDarkMode }) => {
                     }`}
                   >
                     <li>
-                      Led development of enterprise web applications using React
-                      and TypeScript
+                      Developed responsive e-commerce website using React.js
                     </li>
                     <li>
-                      Implemented modern React architectures and optimized
-                      performance
+                      Implemented pixel-perfect UI components from Figma designs
                     </li>
-                    <li>
-                      Managed state with Redux and integrated RESTful APIs
-                    </li>
+                    <li>Optimized website achieving 90+ PageSpeed score</li>
                   </ul>
                 </div>
 
-                {/* Previous Role */}
+                {/* IT Support Specialist */}
                 <div className="space-y-2">
                   <div className="flex justify-between items-start">
                     <div>
@@ -193,16 +347,16 @@ const ResumeModal = ({ isOpen, onClose, isDarkMode }) => {
                           isDarkMode ? "text-white" : "text-zinc-900"
                         }`}
                       >
-                        Web Developer
+                        IT Support Specialist
                       </h3>
-                      <p className="text-teal-500">Digital Agency</p>
+                      <p className="text-teal-500">Foundever (Inuit)</p>
                     </div>
                     <span
                       className={`text-sm ${
                         isDarkMode ? "text-zinc-400" : "text-zinc-600"
                       }`}
                     >
-                      2022 - 2023
+                      May 2022 - November 2023
                     </span>
                   </div>
                   <ul
@@ -210,72 +364,50 @@ const ResumeModal = ({ isOpen, onClose, isDarkMode }) => {
                       isDarkMode ? "text-zinc-300" : "text-zinc-700"
                     }`}
                   >
-                    <li>Developed responsive websites for various clients</li>
                     <li>
-                      Focused on user experience and performance optimization
+                      Maintained 90% first-call resolution rate supporting
+                      Profile software users
                     </li>
                     <li>
-                      Worked with JavaScript, React, Node.js, and modern CSS
+                      Created comprehensive documentation reducing average
+                      resolution time by 30%
+                    </li>
+                    <li>
+                      Collaborated in an Agile team environment to improve
+                      support processes
                     </li>
                   </ul>
                 </div>
               </div>
 
-              {/* Featured Projects */}
+              {/* Education */}
               <div className="space-y-4">
                 <h2
                   className={`text-xl font-semibold ${
                     isDarkMode ? "text-white" : "text-zinc-900"
                   }`}
                 >
-                  Featured Projects
+                  Education
                 </h2>
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div
-                    className={`p-4 rounded-xl ${
-                      isDarkMode
-                        ? "bg-zinc-800/50 ring-1 ring-zinc-700"
-                        : "bg-zinc-100"
-                    }`}
-                  >
-                    <h3
-                      className={`font-medium ${
-                        isDarkMode ? "text-white" : "text-zinc-900"
+                <div className="space-y-2">
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <h3
+                        className={`font-medium ${
+                          isDarkMode ? "text-white" : "text-zinc-900"
+                        }`}
+                      >
+                        Bachelor of Science in Computer Science
+                      </h3>
+                      <p className="text-teal-500">Algoma University</p>
+                    </div>
+                    <span
+                      className={`text-sm ${
+                        isDarkMode ? "text-zinc-400" : "text-zinc-600"
                       }`}
                     >
-                      Modern Portfolio Website
-                    </h3>
-                    <p
-                      className={`text-sm mt-2 ${
-                        isDarkMode ? "text-zinc-300" : "text-zinc-700"
-                      }`}
-                    >
-                      Built with React, Next.js, and Tailwind CSS. Features dark
-                      mode, animations, and responsive design.
-                    </p>
-                  </div>
-                  <div
-                    className={`p-4 rounded-xl ${
-                      isDarkMode
-                        ? "bg-zinc-800/50 ring-1 ring-zinc-700"
-                        : "bg-zinc-100"
-                    }`}
-                  >
-                    <h3
-                      className={`font-medium ${
-                        isDarkMode ? "text-white" : "text-zinc-900"
-                      }`}
-                    >
-                      E-commerce Dashboard
-                    </h3>
-                    <p
-                      className={`text-sm mt-2 ${
-                        isDarkMode ? "text-zinc-300" : "text-zinc-700"
-                      }`}
-                    >
-                      Developed using React and TypeScript. Includes data
-                      visualization and real-time updates.
-                    </p>
+                      2019 - 2021
+                    </span>
                   </div>
                 </div>
               </div>
