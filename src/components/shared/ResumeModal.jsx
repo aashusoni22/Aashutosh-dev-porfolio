@@ -74,10 +74,10 @@ const ResumeModal = ({ isOpen, onClose, isDarkMode }) => {
                     •
                   </span>
                   <a
-                    href="mailto:omsoni051@gmail.com"
+                    href="mailto:aashutoshsoni@proton.me"
                     className="text-teal-500 hover:underline"
                   >
-                    omsoni051@gmail.com
+                    aashutoshsoni@proton.me
                   </a>
                   <span
                     className={isDarkMode ? "text-zinc-300" : "text-zinc-700"}
@@ -85,7 +85,7 @@ const ResumeModal = ({ isOpen, onClose, isDarkMode }) => {
                     •
                   </span>
                   <a
-                    href="https://github.com/aashutosh"
+                    href="https://github.com/aashusoni22/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-teal-500 hover:underline"
@@ -116,6 +116,9 @@ const ResumeModal = ({ isOpen, onClose, isDarkMode }) => {
                     "MongoDB",
                     "Git",
                     "REST APIs",
+                    "Framer Motion",
+                    "React Hook Form",
+                    "Vite",
                   ].map((skill) => (
                     <span
                       key={skill}
@@ -141,6 +144,69 @@ const ResumeModal = ({ isOpen, onClose, isDarkMode }) => {
                   Featured Projects
                 </h2>
                 <div className="space-y-6">
+                  {/* DevProject Generator */}
+                  <div
+                    className={`p-4 rounded-xl ${
+                      isDarkMode
+                        ? "bg-zinc-800/50 ring-1 ring-zinc-700"
+                        : "bg-zinc-100"
+                    }`}
+                  >
+                    <div className="flex justify-between items-start">
+                      <h3
+                        className={`font-medium ${
+                          isDarkMode ? "text-white" : "text-zinc-900"
+                        }`}
+                      >
+                        DevProject Generator
+                      </h3>
+                      <div className="flex gap-2">
+                        <a
+                          href="https://github.com/aashusoni22/DevProject"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-teal-500 hover:underline text-sm"
+                        >
+                          GitHub
+                        </a>
+                        <a
+                          href="https://dev-generator.netlify.app/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-teal-500 hover:underline text-sm"
+                        >
+                          Live Demo
+                        </a>
+                      </div>
+                    </div>
+                    <p
+                      className={`text-sm mt-2 ${
+                        isDarkMode ? "text-zinc-300" : "text-zinc-700"
+                      }`}
+                    >
+                      React.js, Tailwind CSS, Context API, RapidAPI, Vercel
+                    </p>
+                    <ul
+                      className={`list-disc list-inside space-y-1 text-sm mt-3 ${
+                        isDarkMode ? "text-zinc-300" : "text-zinc-700"
+                      }`}
+                    >
+                      <li>
+                        Built AI-powered platform generating personalized
+                        portfolio projects for junior developers
+                      </li>
+                      <li>
+                        Implemented interactive UI with skill selection,
+                        experience level indicators, and project complexity
+                        controls
+                      </li>
+                      <li>
+                        Integrated job board API to match developer skills with
+                        relevant employment opportunities
+                      </li>
+                    </ul>
+                  </div>
+
                   {/* WealthWise */}
                   <div
                     className={`p-4 rounded-xl ${
@@ -159,13 +225,17 @@ const ResumeModal = ({ isOpen, onClose, isDarkMode }) => {
                       </h3>
                       <div className="flex gap-2">
                         <a
-                          href="#"
+                          href="https://github.com/aashusoni22/wealthwise"
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="text-teal-500 hover:underline text-sm"
                         >
                           GitHub
                         </a>
                         <a
-                          href="#"
+                          href="https://wealthwise-eta.vercel.app/"
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="text-teal-500 hover:underline text-sm"
                         >
                           Live Demo
@@ -177,7 +247,8 @@ const ResumeModal = ({ isOpen, onClose, isDarkMode }) => {
                         isDarkMode ? "text-zinc-300" : "text-zinc-700"
                       }`}
                     >
-                      React.js, TailwindCSS, Recharts, Appwrite, React Forms
+                      React.js, Redux, Tailwind CSS, Recharts, Appwrite, Framer
+                      Motion
                     </p>
                     <ul
                       className={`list-disc list-inside space-y-1 text-sm mt-3 ${
@@ -185,14 +256,20 @@ const ResumeModal = ({ isOpen, onClose, isDarkMode }) => {
                       }`}
                     >
                       <li>
-                        Architected and developed full-stack financial
-                        management dashboard
+                        Developed comprehensive financial management application
+                        with expense tracking and goal setting
                       </li>
                       <li>
-                        Implemented real-time data visualization using Recharts
+                        Created interactive dashboard with data visualization
+                        using Recharts
                       </li>
                       <li>
-                        Achieved 95% performance score on Google Lighthouse
+                        Implemented secure authentication and cloud storage
+                        using Appwrite backend services
+                      </li>
+                      <li>
+                        Built responsive design that works seamlessly across
+                        desktop and mobile devices
                       </li>
                     </ul>
                   </div>
@@ -215,13 +292,17 @@ const ResumeModal = ({ isOpen, onClose, isDarkMode }) => {
                       </h3>
                       <div className="flex gap-2">
                         <a
-                          href="#"
+                          href="https://github.com/aashusoni22/MConverter/"
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="text-teal-500 hover:underline text-sm"
                         >
                           GitHub
                         </a>
                         <a
-                          href="#"
+                          href="https://m-converter.vercel.app/"
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="text-teal-500 hover:underline text-sm"
                         >
                           Live Demo

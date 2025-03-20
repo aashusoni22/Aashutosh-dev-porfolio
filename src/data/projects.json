@@ -1,6 +1,22 @@
 {
   "featuredProjects": [
     {
+      "id": "devproject-generator",
+      "title": "DevProject",
+"description": "AI tool that generates custom portfolio project ideas based on developers' skills and goals.",
+      "image": "/devproject.png",
+      "tech": ["React", "Tailwind CSS", "OpenAI API", "Appwrite", "React Context"],
+      "githubLink": "https://github.com/aashusoni22/DevProject",
+      "liveLink": "https://dev-generator.netlify.app/",
+      "category": "Full Stack - Desktop & Mobile",
+      "features": [
+        "Interactive Skill Selection",
+        "Project Generation",
+        "Job Board Integration",
+        "Responsive Layout"
+      ]
+    },
+    {
     "id": "mconverter",
     "title": "MConverter",
     "description":
@@ -48,7 +64,7 @@
   "tech": ["React", "TailwindCSS", "Recharts", "Appwrite", "React Forms"],
   "githubLink": "https://github.com/aashusoni22/wealthwise",
   "liveLink": "https://wealthwise-eta.vercel.app/",
-  "category": "Frontend - Desktop & Mobile",
+  "category": "Full Stack - Desktop & Mobile",
   "features": [
     "Financial Dashboard",
     "Smart Calculators",

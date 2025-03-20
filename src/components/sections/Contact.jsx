@@ -13,14 +13,14 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email",
-      value: "omsoni051@gmail.com",
-      href: "mailto:omsoni051@gmail.com",
+      value: "aashutoshsoni@proton.me",
+      href: "mailto:aashutoshsoni@proton.me",
     },
     {
       icon: Linkedin,
       title: "LinkedIn",
-      value: "@aashutoshs",
-      href: "https://www.linkedin.com/in/aashutoshs/",
+      value: "@aashutosh22",
+      href: "https://www.linkedin.com/in/aashutosh22/",
     },
     {
       icon: MapPin,

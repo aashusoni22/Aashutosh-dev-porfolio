@@ -18,12 +18,12 @@ const Hero = () => {
     },
     {
       icon: Linkedin,
-      href: "https://www.linkedin.com/in/aashutosh-soni-225a12177",
+      href: "https://www.linkedin.com/in/aashutosh22/",
       label: "LinkedIn",
     },
     {
       icon: Mail,
-      href: "mailto:omsoni051@gmail.com",
+      href: "mailto:aashutoshsoni@proton.me",
       label: "Email",
     },
   ];
