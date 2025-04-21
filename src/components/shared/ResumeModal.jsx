@@ -401,7 +401,7 @@ const ResumeModal = ({ isOpen, onClose, isDarkMode }) => {
                         isDarkMode ? "text-zinc-400" : "text-zinc-600"
                       }`}
                     >
-                      May 2024 - Jul 2024
+                      Feb 2025 - Present
                     </span>
                   </div>
                   <ul
