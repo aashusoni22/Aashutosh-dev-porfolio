@@ -19,10 +19,10 @@ const Footer = () => {
     { icon: Github, href: "https://github.com/aashusoni22", label: "GitHub" },
     {
       icon: Linkedin,
-      href: "https://www.linkedin.com/in/aashutosh22/",
+      href: "https://www.linkedin.com/in/soni2205/",
       label: "LinkedIn",
     },
-    { icon: Mail, href: "mailto:aashutoshsoni@proton.me", label: "Email" },
+    { icon: Mail, href: "mailto:omsoni051@gmail.com", label: "Email" },
   ];
 
   const footerLinks = [
@@ -128,7 +128,7 @@ const Footer = () => {
                 isDarkMode ? "text-zinc-400" : "text-zinc-600"
               }`}
             >
-              <p>aashutoshsoni@proton.me</p>
+              <p>omsoni051@gmail.com</p>
               <p>Toronto, Canada</p>
             </div>
           </div>

@@ -77,7 +77,7 @@ const ResumeModal = ({ isOpen, onClose, isDarkMode }) => {
                     href="mailto:aashutoshsoni@proton.me"
                     className="text-teal-500 hover:underline"
                   >
-                    aashutoshsoni@proton.me
+                    omsoni051@gmail.com
                   </a>
                   <span
                     className={isDarkMode ? "text-zinc-300" : "text-zinc-700"}
