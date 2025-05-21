@@ -26,22 +26,22 @@ const App = () => {
           </section>
 
           {/* About section */}
-          <section id="about" className="py-20">
+          <section id="about" className="py-12">
             <About />
           </section>
 
           {/* Experience section */}
-          <section id="experience" className="py-20">
+          <section id="experience" className="py-12">
             <Experience />
           </section>
 
           {/* Projects section */}
-          <section id="projects" className="py-20">
+          <section id="projects" className="py-12">
             <Projects />
           </section>
 
           {/* Contact section */}
-          <section id="contact" className="py-20">
+          <section id="contact" className="py-12">
             <Contact />
           </section>
         </main>

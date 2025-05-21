@@ -1,9 +1,43 @@
 {
   "featuredProjects": [
     {
+      "id": "snapcast",
+      "title": "SnapCast",
+      "description": "A full-stack video sharing platform with real-time recording, video streaming, and advanced analytics.",
+      "image": "/snapcast.png",
+      "tech": ["Next.js", "TypeScript", "Tailwind CSS", "PostgreSQL", "Drizzle ORM", "Bunny.net", "Arcjet"],
+      "githubLink": "https://github.com/aashusoni22/snapcast",
+      "liveLink": "https://snapcast-eight.vercel.app/",
+      "category": "Full Stack - Desktop & Mobile",
+      "features": [
+        "Video Upload & Record",
+        "Real-time Streaming",
+        "Privacy Controls",
+        "View Analytics",
+        "Custom Thumbnails",
+        "Advanced Security"
+      ]
+    },
+    {
+      "id": "wealthwise",
+      "title": "WealthWise",
+      "description": "A modern platform to manage finances, set goals, and make smarter financial decisions.",
+      "image": "/wealthwise.png",
+      "tech": ["React", "TailwindCSS", "Recharts", "Appwrite", "React Forms"],
+      "githubLink": "https://github.com/aashusoni22/wealthwise",
+      "liveLink": "https://wealthwise-eta.vercel.app/",
+      "category": "Full Stack - Desktop & Mobile",
+      "features": [
+        "Financial Dashboard",
+        "Smart Calculators",
+        "Expense Management",
+        "Goal Tracking"
+      ]
+    },
+    {
       "id": "devproject-generator",
       "title": "DevProject",
-"description": "AI tool that generates custom portfolio project ideas based on developers' skills and goals.",
+      "description": "AI tool that generates custom portfolio project ideas based on developers' skills and goals.",
       "image": "/devproject.png",
       "tech": ["React", "Tailwind CSS", "OpenAI API", "Appwrite", "React Context"],
       "githubLink": "https://github.com/aashusoni22/DevProject",
@@ -56,23 +90,24 @@
       "Content Parsing"
     ]
   },
-{
-  "id": "wealthwise",
-  "title": "WealthWise",
-  "description": "A modern platform to manage finances, set goals, and make smarter financial decisions.",
-  "image": "/wealthwise.png",
-  "tech": ["React", "TailwindCSS", "Recharts", "Appwrite", "React Forms"],
-  "githubLink": "https://github.com/aashusoni22/wealthwise",
-  "liveLink": "https://wealthwise-eta.vercel.app/",
-  "category": "Full Stack - Desktop & Mobile",
-  "features": [
-    "Financial Dashboard",
-    "Smart Calculators",
-    "Expense Management",
-    "Goal Tracking"
-  ]
-}
-
+  {
+    "id": "pulse-chat",
+    "title": "Pulse Chat App",
+    "description": "A modern real-time chat application with online status, typing indicators, dark mode, and smooth animations.",
+    "image": "/pulse-chat.png",
+    "tech": ["React", "TypeScript", "Vite", "Tailwind CSS", "Framer Motion", "Firebase", "React Icons"],
+    "githubLink": "https://github.com/aashusoni22/Pulse-real-time-chat",
+    "liveLink": "https://pulse-chat-six.vercel.app/", 
+    "category": "Full Stack - Desktop & Mobile",
+    "features": [
+      "Real-time Messaging",
+      "Typing Indicators",
+      "Online Status Tracking",
+      "Dark Mode Support",
+      "Smooth UI Animations",
+      "Responsive Layout"
+    ]
+  }
   ],
 
   "categories": [

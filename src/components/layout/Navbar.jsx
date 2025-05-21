@@ -113,8 +113,8 @@ const Navbar = () => {
           ${
             isScrolled
               ? isDarkMode
-                ? "bg-zinc-900/80 backdrop-blur-md border-b border-zinc-800"
-                : "bg-white/80 backdrop-blur-md border-b border-zinc-200"
+                ? "bg-zinc-900/80 backdrop-blur-md"
+                : "bg-white/80 backdrop-blur-md"
               : "bg-transparent"
           }`}
       >

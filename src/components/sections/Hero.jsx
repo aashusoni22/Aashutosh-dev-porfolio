@@ -18,7 +18,7 @@ const Hero = () => {
     },
     {
       icon: Linkedin,
-      href: "https://www.linkedin.com/in/aashutosh22/",
+      href: "https://www.linkedin.com/in/soni2205/",
       label: "LinkedIn",
     },
     {

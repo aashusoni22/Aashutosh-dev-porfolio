@@ -15,97 +15,54 @@ import projects from "../../data/projects.json";
 
 const { featuredProjects } = projects;
 
-const projectDetails = {
-  mconverter: {
-    overview:
-      "MConverter is a powerful markdown editor designed for developers and technical writers who need real-time preview capabilities and seamless cloud synchronization. Built with modern web technologies, it offers a clean, distraction-free writing environment.",
-    keyFeatures: {
-      "Real-time Preview":
-        "See your markdown rendered instantly as you type, with support for all common markdown syntax",
-      "Cloud Sync":
-        "Automatically save and sync your documents across devices using Firebase backend",
-      "Dark Mode":
-        "Customizable interface with light and dark themes for comfortable writing in any environment",
-      "Mobile Responsive":
-        "Fully responsive design that adapts to any screen size for editing on the go",
-    },
-    technicalDetails: {
-      frontend: "Built with React and Redux for state management",
-      storage: "Firebase for real-time data synchronization",
-      styling: "Tailwind CSS for responsive design",
-      assets: "Cloudinary for image optimization and storage",
-      animations: "Framer Motion for smooth transitions",
-    },
-    challenges: [
-      "Implementing real-time markdown parsing without affecting performance",
-      "Managing complex state with collaborative editing features",
-      "Optimizing image uploads and processing",
-    ],
-  },
-  megablog: {
-    overview:
-      "MegaBlog is a modern blogging platform that focuses on performance and user experience. It features a rich text editor, real-time updates, and robust state management for handling complex blog post data.",
-    keyFeatures: {
-      "Backend Integration":
-        "Seamless integration with Appwrite backend for secure data storage",
-      "State Management":
-        "Efficient state handling with Redux Toolkit for complex data flows",
-      "Form Validation": "Comprehensive form validation using React Hook Form",
-      "Content Parsing": "Advanced HTML parsing for rich content display",
-    },
-    technicalDetails: {
-      frontend: "React with Redux Toolkit for state management",
-      backend: "Appwrite for backend services",
-      editor: "TinyMCE for rich text editing",
-      validation: "React Hook Form for form handling",
-    },
-    challenges: [
-      "Implementing real-time content updates without compromising performance",
-      "Managing complex form states and validation",
-      "Optimizing content delivery for better user experience",
-    ],
-  },
-  wealthwise: {
-    overview:
-      "WealthWise is a comprehensive financial management platform that helps users track expenses, set financial goals, and make informed decisions about their money through intuitive visualizations and smart calculations.",
-    keyFeatures: {
-      "Financial Dashboard":
-        "Comprehensive overview of financial health with interactive charts",
-      "Smart Calculators":
-        "Tools for investment planning and financial goal setting",
-      "Expense Management": "Detailed tracking and categorization of expenses",
-      "Goal Tracking": "Visual progress tracking for financial goals",
-    },
-    technicalDetails: {
-      frontend: "React with TailwindCSS for styling",
-      charts: "Recharts for data visualization",
-      backend: "Appwrite for secure data storage",
-      forms: "React Forms for user input handling",
-    },
-    challenges: [
-      "Creating intuitive data visualizations for complex financial data",
-      "Implementing secure handling of sensitive financial information",
-      "Optimizing performance with real-time calculations",
-    ],
-  },
+import projectDetails from "../../data/projectDetails.json"; // ✅ Consider moving that big object here for separation of concerns
+
+const overlayVariants = {
+  open: { opacity: 1 },
+  closed: { opacity: 0 },
+};
+
+const panelVariants = {
+  open: { x: 0 },
+  closed: { x: "100%" },
 };
 
 const ProjectDetails = ({ project, isOpen, onClose, isDarkMode }) => {
   if (!isOpen) return null;
-
   const details = projectDetails[project.id];
 
+  const handleKeyDown = (e) => {
+    if (e.key === "Escape") onClose();
+  };
+
+  const textPrimary = isDarkMode ? "text-white" : "text-zinc-900";
+  const textSecondary = isDarkMode ? "text-zinc-300" : "text-zinc-600";
+  const cardBg = isDarkMode ? "bg-zinc-800/50" : "bg-zinc-50";
+
   return (
-    <div className="fixed inset-0 z-50 overflow-hidden">
-      <div
-        className="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity"
+    <div
+      className="fixed inset-0 z-50 overflow-hidden"
+      onKeyDown={handleKeyDown}
+      tabIndex={-1}
+    >
+      <motion.div
+        initial="closed"
+        animate="open"
+        exit="closed"
+        variants={overlayVariants}
+        transition={{ duration: 0.3 }}
+        className="absolute inset-0 bg-black/60 backdrop-blur-sm"
         onClick={onClose}
       />
-
-      <div
-        className={`absolute inset-y-0 right-0 w-full md:w-2/3 lg:w-3/5 transform transition-transform duration-500 ease-out ${
-          isOpen ? "translate-x-0" : "translate-x-full"
-        } ${isDarkMode ? "bg-zinc-900" : "bg-white"}`}
+      <motion.div
+        initial="closed"
+        animate="open"
+        exit="closed"
+        variants={panelVariants}
+        transition={{ type: "spring", stiffness: 200, damping: 30 }}
+        className={`absolute inset-y-0 right-0 w-full md:w-2/3 lg:w-3/5 transform ${
+          isDarkMode ? "bg-zinc-900" : "bg-white"
+        }`}
       >
         <button
           onClick={onClose}
@@ -115,70 +72,56 @@ const ProjectDetails = ({ project, isOpen, onClose, isDarkMode }) => {
         </button>
 
         <div className="h-full overflow-y-auto">
-          {/* Hero Section */}
+          {/* Hero */}
           <div className="relative h-[40vh] md:h-[50vh]">
-            <div className="absolute inset-0">
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/20" />
-            </div>
-
-            <div className="absolute bottom-0 left-0 right-0 p-8">
-              <div className="space-y-4">
-                <span
-                  className={`inline-block px-3 py-1 text-sm rounded-full ${
-                    isDarkMode
-                      ? "bg-zinc-800 text-teal-400"
-                      : "bg-white/90 text-teal-600"
-                  }`}
-                >
-                  {project.category}
-                </span>
-                <h2 className="text-4xl font-bold text-white">
-                  {project.title}
-                </h2>
-              </div>
+            <img
+              src={project.image}
+              alt={project.title}
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/20" />
+            <div className="absolute bottom-0 p-8">
+              <span
+                className={`inline-block px-3 py-1 text-sm rounded-full ${
+                  isDarkMode
+                    ? "bg-zinc-800 text-teal-400"
+                    : "bg-white/90 text-teal-600"
+                }`}
+              >
+                {project.category}
+              </span>
+              <h2 className="text-4xl font-bold text-white mt-3">
+                {project.title}
+              </h2>
             </div>
           </div>
 
-          {/* Content Sections */}
+          {/* Content */}
           <div className="p-8 space-y-12">
-            {/* Project Overview */}
-            <div className="space-y-6">
-              <div className="space-y-4">
-                <h3
-                  className={`text-2xl font-semibold ${
-                    isDarkMode ? "text-white" : "text-zinc-900"
-                  }`}
-                >
-                  Project Overview
-                </h3>
-                <p
-                  className={`text-lg leading-relaxed ${
-                    isDarkMode ? "text-zinc-300" : "text-zinc-600"
-                  }`}
-                >
-                  {details.overview}
-                </p>
-              </div>
+            {/* Overview */}
+            <div className="space-y-4">
+              <h3 className={`text-2xl font-semibold ${textPrimary}`}>
+                Project Overview
+              </h3>
+              <p className={`text-lg leading-relaxed ${textSecondary}`}>
+                {details.overview}
+              </p>
 
+              {/* Links */}
               <div className="flex flex-wrap gap-4">
                 {project.githubLink && (
                   <a
                     href={project.githubLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-colors ${
+                    className={`flex items-center gap-2 px-4 py-2 rounded-lg transition ${
                       isDarkMode
-                        ? "bg-zinc-800 hover:bg-zinc-700 text-white"
-                        : "bg-zinc-100 hover:bg-zinc-200 text-zinc-900"
-                    }`}
+                        ? "bg-zinc-800 text-white"
+                        : "bg-zinc-100 text-zinc-900"
+                    } hover:ring-1 hover:ring-teal-500`}
                   >
                     <Github className="w-5 h-5" />
-                    <span>View Code</span>
+                    View Code
                   </a>
                 )}
                 {project.liveLink && (
@@ -186,109 +129,58 @@ const ProjectDetails = ({ project, isOpen, onClose, isDarkMode }) => {
                     href={project.liveLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-4 py-2 rounded-lg bg-teal-500 hover:bg-teal-600 text-white transition-colors"
+                    className="flex items-center gap-2 px-4 py-2 rounded-lg bg-teal-500 hover:bg-teal-600 text-white"
                   >
                     <ExternalLink className="w-5 h-5" />
-                    <span>Live Demo</span>
+                    Live Demo
                   </a>
                 )}
               </div>
             </div>
 
             {/* Key Features */}
-            <div className="space-y-6">
-              <h3
-                className={`text-2xl font-semibold ${
-                  isDarkMode ? "text-white" : "text-zinc-900"
-                }`}
-              >
+            <div className="space-y-4">
+              <h3 className={`text-2xl font-semibold ${textPrimary}`}>
                 Key Features
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {Object.entries(details.keyFeatures).map(
-                  ([feature, description]) => (
-                    <div
-                      key={feature}
-                      className={`p-4 rounded-lg ${
-                        isDarkMode ? "bg-zinc-800/50" : "bg-zinc-50"
-                      }`}
-                    >
-                      <h4
-                        className={`font-medium mb-2 ${
-                          isDarkMode ? "text-white" : "text-zinc-900"
-                        }`}
-                      >
-                        {feature}
-                      </h4>
-                      <p
-                        className={`text-sm ${
-                          isDarkMode ? "text-zinc-400" : "text-zinc-600"
-                        }`}
-                      >
-                        {description}
-                      </p>
-                    </div>
-                  )
-                )}
+                {Object.entries(details.keyFeatures).map(([title, desc]) => (
+                  <div key={title} className={`p-4 rounded-lg ${cardBg}`}>
+                    <h4 className={`font-medium mb-2 ${textPrimary}`}>
+                      {title}
+                    </h4>
+                    <p className={`text-sm ${textSecondary}`}>{desc}</p>
+                  </div>
+                ))}
               </div>
             </div>
 
             {/* Technical Implementation */}
-            <div className="space-y-6">
-              <h3
-                className={`text-2xl font-semibold ${
-                  isDarkMode ? "text-white" : "text-zinc-900"
-                }`}
-              >
+            <div className="space-y-4">
+              <h3 className={`text-2xl font-semibold ${textPrimary}`}>
                 Technical Implementation
               </h3>
-              <div className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {Object.entries(details.technicalDetails).map(
-                    ([category, detail]) => (
-                      <div
-                        key={category}
-                        className={`flex items-start gap-4 p-4 rounded-lg ${
-                          isDarkMode ? "bg-zinc-800/50" : "bg-zinc-50"
-                        }`}
-                      >
-                        <div
-                          className={`p-2 rounded-lg ${
-                            isDarkMode ? "bg-zinc-700" : "bg-white"
-                          }`}
-                        >
-                          <Code className="w-5 h-5 text-teal-500" />
-                        </div>
-                        <div>
-                          <h4
-                            className={`font-medium capitalize mb-1 ${
-                              isDarkMode ? "text-white" : "text-zinc-900"
-                            }`}
-                          >
-                            {category}
-                          </h4>
-                          <p
-                            className={`text-sm ${
-                              isDarkMode ? "text-zinc-400" : "text-zinc-600"
-                            }`}
-                          >
-                            {detail}
-                          </p>
-                        </div>
-                      </div>
-                    )
-                  )}
-                </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {Object.entries(details.technicalDetails).map(([key, val]) => (
+                  <div
+                    key={key}
+                    className={`flex gap-3 p-4 rounded-lg ${cardBg}`}
+                  >
+                    <div className="p-2 rounded-lg bg-teal-500/10">
+                      <Code className="w-5 h-5 text-teal-500" />
+                    </div>
+                    <div>
+                      <h4 className={`font-medium ${textPrimary}`}>{key}</h4>
+                      <p className={`text-sm ${textSecondary}`}>{val}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
 
-            {/* Technical Stack */}
-            <div className="space-y-6">
-              <h3
-                className={`text-2xl font-semibold ${
-                  isDarkMode ? "text-white" : "text-zinc-900"
-                }`}
-              >
+            {/* Tech Stack */}
+            <div className="space-y-4">
+              <h3 className={`text-2xl font-semibold ${textPrimary}`}>
                 Technical Stack
               </h3>
               <div className="flex flex-wrap gap-3">
@@ -307,44 +199,24 @@ const ProjectDetails = ({ project, isOpen, onClose, isDarkMode }) => {
               </div>
             </div>
 
-            {/* Challenges & Solutions */}
-            <div className="space-y-6">
-              <h3
-                className={`text-2xl font-semibold ${
-                  isDarkMode ? "text-white" : "text-zinc-900"
-                }`}
-              >
+            {/* Challenges */}
+            <div className="space-y-4">
+              <h3 className={`text-2xl font-semibold ${textPrimary}`}>
                 Challenges & Solutions
               </h3>
-              <div className="space-y-4">
-                {details.challenges.map((challenge, index) => (
-                  <div
-                    key={index}
-                    className={`p-4 rounded-lg ${
-                      isDarkMode ? "bg-zinc-800/50" : "bg-zinc-50"
-                    }`}
-                  >
-                    <div className="flex items-start gap-3">
-                      <div className="w-2 h-2 mt-2 rounded-full bg-teal-500" />
-                      <p
-                        className={
-                          isDarkMode ? "text-zinc-300" : "text-zinc-700"
-                        }
-                      >
-                        {challenge}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
+              {details.challenges.map((item, i) => (
+                <div key={i} className={`flex gap-3 p-4 rounded-lg ${cardBg}`}>
+                  <div className="w-2 h-2 mt-2 rounded-full bg-teal-500" />
+                  <p className={textSecondary}>{item}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
-
 const ProjectCard = ({ project, isDarkMode }) => {
   const [showDetails, setShowDetails] = useState(false);
 
@@ -520,7 +392,7 @@ const Projects = () => {
             className="flex justify-center pt-4"
           >
             <a
-              href="https://github.com/yourusername"
+              href="https://github.com/aashusoni22?tab=repositories"
               target="_blank"
               rel="noopener noreferrer"
               className={`group inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium transition-colors

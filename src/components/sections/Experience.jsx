@@ -10,41 +10,46 @@ const Experience = () => {
 
   const experiences = [
     {
-      title: "Technical Support Specialist",
-      company: "Transcom (Apple)",
-      period: "2023 - Present",
+      title: "Frontend Developer",
+      company: "CJ Jewellers",
+      period: "Feb 2025 - Present",
       description:
-        "Resolved complex technical issues for iOS and macOS systems with 95% customer satisfaction. Created technical documentation to improve team knowledge base. Identified and reported software bugs through internal ticketing systems.",
+        "Designed and developed a fully responsive e-commerce platform using React.js, HTML5, CSS3, and JavaScript. Built reusable UI components, integrated REST APIs for real-time product and order management, and implemented authentication and client-side routing. Performed code reviews, debugging, and production issue triaging to maintain a scalable, modular codebase.",
       skills: [
-        "Technical Support",
-        "iOS Troubleshooting",
-        "Customer Service",
-        "Bug Reporting",
-        "Knowledge Base Management",
+        "React",
+        "JavaScript",
+        "REST APIs",
+        "Responsive Design",
+        "Authentication",
+        "Unit Testing (Jest)",
+        "Code Reviews",
       ],
       icon: Code,
       current: true,
     },
     {
-      title: "Frontend Developer",
-      company: "Freelance",
-      period: "2023 - 2023",
+      title: "IT Support Specialist",
+      company: "Transcom (Apple)",
+      period: "Feb 2024 - Present",
       description:
-        "Built responsive web applications using React and Tailwind CSS for small businesses. Implemented user interfaces following design specifications and optimized website performance. Collaborated with clients to gather requirements and deliver solutions.",
+        "Delivered Tier-2 technical troubleshooting for complex software, cloud services, and hardware issues. Performed root-cause analysis, error monitoring, and system diagnostics to resolve production incidents efficiently. Created detailed technical documentation and collaborated with backend and product teams for escalations. Gained exposure to API behavior, incident triaging, and cloud systems error monitoring.",
       skills: [
-        "React",
-        "JavaScript",
-        "Tailwind CSS",
-        "Git",
-        "Responsive Design",
+        "Technical Support",
+        "Root-Cause Analysis",
+        "System Diagnostics",
+        "API Behavior",
+        "Cloud Systems Monitoring",
+        "Documentation",
+        "Incident Triaging",
       ],
       icon: Wrench,
-      current: false,
+      current: true,
     },
+
     {
-      title: "IT Support Specialist",
+      title: "Technical Support Specialist",
       company: "Foundever (Intuit)",
-      period: "2021 - 2022",
+      period: "Nov 2022 - Dec 2023",
       description:
         "Provided technical support for Profile (software) users, maintaining a 90% first-call resolution rate. Documented common issues and solutions in the internal knowledge base. Collaborated with team members to improve support processes.",
       skills: [
