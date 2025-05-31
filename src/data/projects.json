@@ -1,6 +1,24 @@
 {
   "featuredProjects": [
     {
+      "id": "applyai",
+      "title": "ApplyAI",
+      "description": "An AI-powered job application assistant that analyzes resumes against job descriptions, providing intelligent insights and optimization suggestions.",
+      "image": "/applyai.png",
+      "tech": ["Next.js", "TypeScript", "OpenAI GPT-4", "Tailwind CSS", "Framer Motion", "React Dropzone", "Lucide React"],
+      "githubLink": "https://github.com/aashusoni22/applyai",
+      "liveLink": "https://applyai.vercel.app/",
+      "category": "Full Stack - Desktop & Mobile",
+      "features": [
+        "Smart Resume Analysis",
+        "PDF Resume Upload",
+        "Skill Matching",
+        "Match Scoring",
+        "AI Suggestions",
+        "Modern UI"
+      ]
+    },
+    {
       "id": "snapcast",
       "title": "SnapCast",
       "description": "A full-stack video sharing platform with real-time recording, video streaming, and advanced analytics.",
@@ -32,6 +50,24 @@
         "Smart Calculators",
         "Expense Management",
         "Goal Tracking"
+      ]
+    },
+    {
+      "id": "converso",
+      "title": "Converso",
+      "description": "A modern AI learning platform with interactive educational companions that provide personalized learning experiences through voice interaction.",
+      "image": "/converso.png",
+      "tech": ["Next.js", "TypeScript", "Tailwind CSS", "Supabase", "Vapi SDK", "Lottie", "Sentry"],
+      "githubLink": "https://github.com/aashusoni22/Converso-AI-Learning-Platform",
+      "liveLink": "https://converso-livid.vercel.app/",
+      "category": "Full Stack - Desktop & Mobile",
+      "features": [
+        "AI Companions",
+        "Voice Interaction",
+        "Session History",
+        "Smart Bookmarking",
+        "Responsive Design",
+        "Modern UI/UX"
       ]
     },
     {

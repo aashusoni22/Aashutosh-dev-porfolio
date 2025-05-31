@@ -1,147 +1,208 @@
 {
-    "mconverter": {
-      "overview":
-        "MConverter is a powerful markdown editor designed for developers and technical writers who need real-time preview capabilities and seamless cloud synchronization. Built with modern web technologies, it offers a clean, distraction-free writing environment.",
-      "keyFeatures": {
-        "Real-time Preview":
-          "See your markdown rendered instantly as you type, with support for all common markdown syntax.",
-        "Cloud Sync":
-          "Automatically save and sync your documents across devices using a Firebase backend.",
-        "Dark Mode":
-          "Customizable interface with light and dark themes for comfortable writing in any environment.",
-        "Mobile Responsive":
-          "Fully responsive design that adapts to any screen size for editing on the go."
-      },
-      "technicalDetails": {
-        "frontend": "React and Redux for state management",
-        "storage": "Firebase for real-time data synchronization",
-        "styling": "Tailwind CSS for responsive design",
-        "assets": "Cloudinary for image optimization and storage",
-        "animations": "Framer Motion for smooth transitions"
-      },
-      "challenges": [
-        "Implementing real-time markdown parsing without affecting performance.",
-        "Managing complex state with collaborative editing features.",
-        "Optimizing image uploads and processing."
-      ]
-    },
-  
-    "megablog": {
-      "overview":
-        "MegaBlog is a modern blogging platform focused on performance and user experience. It features a rich text editor, real-time updates, and robust state management for handling complex blog post data.",
-      "keyFeatures": {
-        "Backend Integration":
-          "Seamless integration with Appwrite backend for secure data storage.",
-        "State Management":
-          "Efficient state handling with Redux Toolkit for complex data flows.",
-        "Form Validation":
-          "Comprehensive form validation using React Hook Form.",
-        "Content Parsing":
-          "Advanced HTML parsing for rich content display."
-      },
-      "technicalDetails": {
-        "frontend": "React with Redux Toolkit for state management",
-        "backend": "Appwrite for backend services",
-        "editor": "TinyMCE for rich text editing",
-        "validation": "React Hook Form for form handling"
-      },
-      "challenges": [
-        "Implementing real-time content updates without compromising performance.",
-        "Managing complex form states and validation.",
-        "Optimizing content delivery for a better user experience."
-      ]
-    },
-  
-    "wealthwise": {
-      "overview":
-        "WealthWise is a comprehensive financial management platform helping users track expenses, set financial goals, and make informed decisions with intuitive visualizations and smart calculations.",
-      "keyFeatures": {
-        "Financial Dashboard":
-          "Comprehensive overview of financial health with interactive charts.",
-        "Smart Calculators":
-          "Tools for investment planning and financial goal setting.",
-        "Expense Management":
-          "Detailed tracking and categorization of expenses.",
-        "Goal Tracking":
-          "Visual progress tracking for financial goals."
-      },
-      "technicalDetails": {
-        "frontend": "React with TailwindCSS for styling",
-        "charts": "Recharts for data visualization",
-        "backend": "Appwrite for secure data storage",
-        "forms": "React Hook Form for user input handling"
-      },
-      "challenges": [
-        "Creating intuitive data visualizations for complex financial data.",
-        "Implementing secure handling of sensitive financial information.",
-        "Optimizing performance with real-time calculations."
-      ]
-    },
-    
-  "snapcast": {
+  "mconverter": {
     "overview":
-      "SnapCast is a sleek podcast and audio content streaming app designed for seamless listening experiences. It supports real-time streaming, personalized playlists, and episode bookmarking with a minimalist modern UI.",
+      "MConverter is a powerful markdown editor designed for developers and technical writers who need real-time preview capabilities and seamless cloud synchronization. Built with modern web technologies, it offers a clean, distraction-free writing environment.",
     "keyFeatures": {
-      "Real-time Streaming": "Listen to podcasts and audio shows without buffering.",
-      "Episode Bookmarking": "Save your favorite moments and episodes.",
-      "User Playlists": "Create custom playlists for easy access to your top picks.",
-      "Dark Mode UI": "Clean, distraction-free dark themed interface."
+      "Real-time Preview":
+        "See your markdown rendered instantly as you type, with support for all common markdown syntax.",
+      "Cloud Sync":
+        "Automatically save and sync your documents across devices using a Firebase backend.",
+      "Dark Mode":
+        "Customizable interface with light and dark themes for comfortable writing in any environment.",
+      "Mobile Responsive":
+        "Fully responsive design that adapts to any screen size for editing on the go."
     },
     "technicalDetails": {
-      "frontend": "React with Tailwind CSS for UI",
-      "backend": "Firebase for real-time data and user auth",
-      "media": "Cloudinary for audio storage and delivery",
-      "animations": "Framer Motion for smooth page transitions"
+      "frontend": "React and Redux for state management",
+      "storage": "Firebase for real-time data synchronization",
+      "styling": "Tailwind CSS for responsive design",
+      "assets": "Cloudinary for image optimization and storage",
+      "animations": "Framer Motion for smooth transitions"
     },
     "challenges": [
-      "Managing real-time audio streaming without performance drops.",
-      "Implementing dynamic playlist and bookmark features.",
-      "Ensuring smooth, lag-free UI animations and transitions."
+      "Implementing real-time markdown parsing without affecting performance.",
+      "Managing complex state with collaborative editing features.",
+      "Optimizing image uploads and processing."
     ]
   },
 
-  "pulse-chat": {
+  "megablog": {
     "overview":
-      "PulseChat is a real-time messaging application offering secure, lightning-fast communication with a clean, dark-themed UI. It features online status tracking, typing indicators, and AI-powered responses via OpenAI integration.",
+      "MegaBlog is a modern blogging platform focused on performance and user experience. It features a rich text editor, real-time updates, and robust state management for handling complex blog post data.",
     "keyFeatures": {
-      "Real-time Messaging": "Instant messaging with live updates using Firebase.",
-      "Online/Offline Status": "Track user availability and last seen timestamps.",
-      "AI-Powered Replies": "Integrated OpenAI GPT for smart auto-responses.",
-      "Chat History Storage": "Store chat logs securely in Firebase."
+      "Backend Integration":
+        "Seamless integration with Appwrite backend for secure data storage.",
+      "State Management":
+        "Efficient state handling with Redux Toolkit for complex data flows.",
+      "Form Validation":
+        "Comprehensive form validation using React Hook Form.",
+      "Content Parsing":
+        "Advanced HTML parsing for rich content display."
     },
     "technicalDetails": {
-      "frontend": "React, TypeScript, and Tailwind CSS",
-      "backend": "Firebase Firestore for real-time data",
-      "AI Integration": "OpenAI GPT via Fetch API",
-      "animations": "Framer Motion for animated message bubbles"
+      "frontend": "React with Redux Toolkit for state management",
+      "backend": "Appwrite for backend services",
+      "editor": "TinyMCE for rich text editing",
+      "validation": "React Hook Form for form handling"
     },
     "challenges": [
-      "Integrating AI responses alongside real-time chat messages.",
-      "Maintaining smooth performance with heavy real-time interactions.",
-      "Implementing a reliable online/last seen status system."
+      "Implementing real-time content updates without compromising performance.",
+      "Managing complex form states and validation.",
+      "Optimizing content delivery for a better user experience."
     ]
   },
 
-  "devproject-generator": {
+  "wealthwise": {
     "overview":
-      "DevProject is a developer productivity tool for organizing coding projects, managing tasks, and tracking progress with an elegant and intuitive dashboard. Built for frontend developers and teams to collaborate seamlessly.",
+      "WealthWise is a comprehensive financial management platform helping users track expenses, set financial goals, and make informed decisions with intuitive visualizations and smart calculations.",
     "keyFeatures": {
-      "Project & Task Management": "Create, update, and track development tasks.",
-      "Dark Mode Dashboard": "Minimalist and clean dark theme layout.",
-      "Progress Tracking": "Visual indicators and statistics for task completion.",
-      "Mobile Optimized": "Responsive layout for mobile and desktop workflows."
+      "Financial Dashboard":
+        "Comprehensive overview of financial health with interactive charts.",
+      "Smart Calculators":
+        "Tools for investment planning and financial goal setting.",
+      "Expense Management":
+        "Detailed tracking and categorization of expenses.",
+      "Goal Tracking":
+        "Visual progress tracking for financial goals."
     },
     "technicalDetails": {
-      "frontend": "React with TypeScript and Tailwind CSS",
-      "backend": "Firebase Firestore for data management",
-      "UI Components": "Shadcn/ui for reusable components",
-      "animations": "Framer Motion for dashboard transitions"
+      "frontend": "React with TailwindCSS for styling",
+      "charts": "Recharts for data visualization",
+      "backend": "Appwrite for secure data storage",
+      "forms": "React Hook Form for user input handling"
     },
     "challenges": [
-      "Building a scalable task management structure.",
-      "Optimizing dashboard performance for real-time updates.",
-      "Creating clean, consistent UI components with custom animations."
+      "Creating intuitive data visualizations for complex financial data.",
+      "Implementing secure handling of sensitive financial information.",
+      "Optimizing performance with real-time calculations."
     ]
-  }
-  }
+  },
   
+"snapcast": {
+  "overview":
+    "SnapCast is a sleek podcast and audio content streaming app designed for seamless listening experiences. It supports real-time streaming, personalized playlists, and episode bookmarking with a minimalist modern UI.",
+  "keyFeatures": {
+    "Real-time Streaming": "Listen to podcasts and audio shows without buffering.",
+    "Episode Bookmarking": "Save your favorite moments and episodes.",
+    "User Playlists": "Create custom playlists for easy access to your top picks.",
+    "Dark Mode UI": "Clean, distraction-free dark themed interface."
+  },
+  "technicalDetails": {
+    "frontend": "React with Tailwind CSS for UI",
+    "backend": "Firebase for real-time data and user auth",
+    "media": "Cloudinary for audio storage and delivery",
+    "animations": "Framer Motion for smooth page transitions"
+  },
+  "challenges": [
+    "Managing real-time audio streaming without performance drops.",
+    "Implementing dynamic playlist and bookmark features.",
+    "Ensuring smooth, lag-free UI animations and transitions."
+  ]
+},
+
+"pulse-chat": {
+  "overview":
+    "PulseChat is a real-time messaging application offering secure, lightning-fast communication with a clean, dark-themed UI. It features online status tracking, typing indicators, and AI-powered responses via OpenAI integration.",
+  "keyFeatures": {
+    "Real-time Messaging": "Instant messaging with live updates using Firebase.",
+    "Online/Offline Status": "Track user availability and last seen timestamps.",
+    "AI-Powered Replies": "Integrated OpenAI GPT for smart auto-responses.",
+    "Chat History Storage": "Store chat logs securely in Firebase."
+  },
+  "technicalDetails": {
+    "frontend": "React, TypeScript, and Tailwind CSS",
+    "backend": "Firebase Firestore for real-time data",
+    "AI Integration": "OpenAI GPT via Fetch API",
+    "animations": "Framer Motion for animated message bubbles"
+  },
+  "challenges": [
+    "Integrating AI responses alongside real-time chat messages.",
+    "Maintaining smooth performance with heavy real-time interactions.",
+    "Implementing a reliable online/last seen status system."
+  ]
+},
+
+"devproject-generator": {
+  "overview":
+    "DevProject is a developer productivity tool for organizing coding projects, managing tasks, and tracking progress with an elegant and intuitive dashboard. Built for frontend developers and teams to collaborate seamlessly.",
+  "keyFeatures": {
+    "Project & Task Management": "Create, update, and track development tasks.",
+    "Dark Mode Dashboard": "Minimalist and clean dark theme layout.",
+    "Progress Tracking": "Visual indicators and statistics for task completion.",
+    "Mobile Optimized": "Responsive layout for mobile and desktop workflows."
+  },
+  "technicalDetails": {
+    "frontend": "React with TypeScript and Tailwind CSS",
+    "backend": "Firebase Firestore for data management",
+    "UI Components": "Shadcn/ui for reusable components",
+    "animations": "Framer Motion for dashboard transitions"
+  },
+  "challenges": [
+    "Building a scalable task management structure.",
+    "Optimizing dashboard performance for real-time updates.",
+    "Creating clean, consistent UI components with custom animations."
+  ]
+},
+
+"applyai": {
+  "overview":
+    "ApplyAI is a powerful Next.js application that uses AI to analyze resumes against job descriptions, providing intelligent insights and suggestions to help job seekers optimize their applications and improve their chances of landing interviews.",
+  "keyFeatures": {
+    "Smart Resume Analysis": "AI-powered comparison between resumes and job descriptions using GPT-4.",
+    "PDF Resume Upload": "Automatically extract text from PDF resumes using OpenAI Assistants API.",
+    "Skill Matching": "Identifies both matched and missing technical and soft skills with detailed breakdown.",
+    "Match Scoring": "Provides an overall compatibility score with comprehensive analysis.",
+    "AI Suggestions": "Get personalized recommendations to improve resume alignment.",
+    "Modern UI": "Beautiful, responsive interface with animations and real-time feedback."
+  },
+  "technicalDetails": {
+    "framework": "Next.js 15 with App Router and TypeScript",
+    "AI": "OpenAI GPT-4 and Assistants API for analysis and PDF parsing",
+    "styling": "Tailwind CSS for responsive design",
+    "animations": "Framer Motion for smooth transitions",
+    "fileHandling": "React Dropzone for drag-and-drop uploads",
+    "icons": "Lucide React for modern iconography"
+  },
+  "challenges": [
+    "Implementing accurate PDF text extraction using OpenAI Assistants API.",
+    "Creating intelligent resume analysis that goes beyond simple keyword matching.",
+    "Handling various PDF formats and layouts with fallback options.",
+    "Optimizing API usage and managing OpenAI quota limits effectively.",
+    "Ensuring user privacy with temporary file processing and no permanent storage."
+  ]
+},
+"converso": {
+  "overview":
+    "Converso is a modern, interactive learning platform that provides AI-powered educational companions for personalized learning experiences. Transform your learning journey with intelligent companions that adapt to your style and pace through natural conversations.",
+  "keyFeatures": {
+    "AI Companions":
+      "Interactive AI-powered learning companions for various subjects, providing personalized learning experiences through natural conversations.",
+    "Voice Interaction":
+      "Experience natural conversations with AI companions using advanced voice recognition and synthesis technology.",
+    "Session History":
+      "Track your learning progress and review past sessions to monitor your growth and improvement.",
+    "Smart Bookmarking":
+      "Save and organize your favorite learning companions for quick access to your preferred learning resources.",
+    "Responsive Design":
+      "Enjoy a seamless learning experience across all devices, from desktop to mobile.",
+    "Modern UI/UX":
+      "Experience a clean, intuitive interface designed for optimal learning engagement."
+  },
+  "technicalDetails": {
+    "framework": "Next.js 14 with TypeScript",
+    "styling": "Tailwind CSS for responsive design",
+    "database": "Supabase for data storage and real-time features",
+    "authentication": "Supabase Auth for secure user management",
+    "voice": "Vapi SDK for voice recognition and synthesis",
+    "animations": "Lottie for engaging UI animations",
+    "monitoring": "Sentry for error tracking and performance monitoring"
+  },
+  "challenges": [
+    "Integrating voice recognition technology for natural conversation flow.",
+    "Creating personalized AI companions that adapt to individual learning styles.",
+    "Managing real-time session data and learning progress tracking.",
+    "Implementing seamless voice interaction across different devices and browsers.",
+    "Optimizing performance for real-time AI conversations and responses."
+  ]
+}
+}
