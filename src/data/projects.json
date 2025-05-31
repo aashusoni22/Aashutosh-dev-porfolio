@@ -6,8 +6,8 @@
       "description": "An AI-powered job application assistant that analyzes resumes against job descriptions, providing intelligent insights and optimization suggestions.",
       "image": "/applyai.png",
       "tech": ["Next.js", "TypeScript", "OpenAI GPT-4", "Tailwind CSS", "Framer Motion", "React Dropzone", "Lucide React"],
-      "githubLink": "https://github.com/aashusoni22/applyai",
-      "liveLink": "https://applyai.vercel.app/",
+      "githubLink": "https://github.com/aashusoni22/Apply-ai",
+      "liveLink": "https://apply-ai-nine.vercel.app/",
       "category": "Full Stack - Desktop & Mobile",
       "features": [
         "Smart Resume Analysis",
