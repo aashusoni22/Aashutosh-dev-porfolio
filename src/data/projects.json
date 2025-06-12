@@ -5,10 +5,10 @@
       "title": "ApplyAI",
       "description": "An AI-powered job application assistant that analyzes resumes against job descriptions, providing intelligent insights and optimization suggestions.",
       "image": "/applyai.png",
-      "tech": ["Next.js", "TypeScript", "OpenAI GPT-4", "Tailwind CSS", "Framer Motion", "React Dropzone", "Lucide React"],
+      "tech": ["Next.js", "TypeScript", "OpenAI GPT-4", "Framer Motion", "React Dropzone"],
       "githubLink": "https://github.com/aashusoni22/Apply-ai",
       "liveLink": "https://apply-ai-nine.vercel.app/",
-      "category": "Full Stack - Desktop & Mobile",
+      "category": "Full Stack",
       "features": [
         "Smart Resume Analysis",
         "PDF Resume Upload",
@@ -18,24 +18,7 @@
         "Modern UI"
       ]
     },
-    {
-      "id": "snapcast",
-      "title": "SnapCast",
-      "description": "A full-stack video sharing platform with real-time recording, video streaming, and advanced analytics.",
-      "image": "/snapcast.png",
-      "tech": ["Next.js", "TypeScript", "Tailwind CSS", "PostgreSQL", "Drizzle ORM", "Bunny.net", "Arcjet"],
-      "githubLink": "https://github.com/aashusoni22/snapcast",
-      "liveLink": "https://snapcast-eight.vercel.app/",
-      "category": "Full Stack - Desktop & Mobile",
-      "features": [
-        "Video Upload & Record",
-        "Real-time Streaming",
-        "Privacy Controls",
-        "View Analytics",
-        "Custom Thumbnails",
-        "Advanced Security"
-      ]
-    },
+    
     {
       "id": "wealthwise",
       "title": "WealthWise",
@@ -44,7 +27,7 @@
       "tech": ["React", "TailwindCSS", "Recharts", "Appwrite", "React Forms"],
       "githubLink": "https://github.com/aashusoni22/wealthwise",
       "liveLink": "https://wealthwise-eta.vercel.app/",
-      "category": "Full Stack - Desktop & Mobile",
+      "category": "Full Stack",
       "features": [
         "Financial Dashboard",
         "Smart Calculators",
@@ -57,10 +40,10 @@
       "title": "Converso",
       "description": "A modern AI learning platform with interactive educational companions that provide personalized learning experiences through voice interaction.",
       "image": "/converso.png",
-      "tech": ["Next.js", "TypeScript", "Tailwind CSS", "Supabase", "Vapi SDK", "Lottie", "Sentry"],
+      "tech": ["Next.js", "TypeScript", "Tailwind CSS", "Supabase", "Vapi SDK","Sentry"],
       "githubLink": "https://github.com/aashusoni22/Converso-AI-Learning-Platform",
       "liveLink": "https://converso-livid.vercel.app/",
-      "category": "Full Stack - Desktop & Mobile",
+      "category": "Full Stack",
       "features": [
         "AI Companions",
         "Voice Interaction",
@@ -78,7 +61,7 @@
       "tech": ["React", "Tailwind CSS", "OpenAI API", "Appwrite", "React Context"],
       "githubLink": "https://github.com/aashusoni22/DevProject",
       "liveLink": "https://dev-generator.netlify.app/",
-      "category": "Full Stack - Desktop & Mobile",
+      "category": "Full Stack",
       "features": [
         "Interactive Skill Selection",
         "Project Generation",
@@ -95,7 +78,7 @@
     "tech": ["React", "Redux", "Firebase", "Tailwind", "Cloudinary", "Framer"],
     "githubLink": "https://github.com/aashusoni22/MConverter",
     "liveLink": "https://m-converter.vercel.app",
-    "category": "Frontend - Desktop",
+    "category": "Full Stack",
     "features": [
       "Real-time Preview",
       "Cloud Sync",
@@ -118,32 +101,15 @@
     ],
     "githubLink": "https://github.com/aashusoni22/megablog",
     "liveLink": "https://megablog-psi.vercel.app/",
-    "category": "Frontend - Desktop & Mobile",
+    "category": "Frontend",
     "features": [
       "Backend Integration",
       "State Management",
       "Form Validation",
       "Content Parsing"
     ]
-  },
-  {
-    "id": "pulse-chat",
-    "title": "Pulse Chat App",
-    "description": "A modern real-time chat application with online status, typing indicators, dark mode, and smooth animations.",
-    "image": "/pulse-chat.png",
-    "tech": ["React", "TypeScript", "Vite", "Tailwind CSS", "Framer Motion", "Firebase", "React Icons"],
-    "githubLink": "https://github.com/aashusoni22/Pulse-real-time-chat",
-    "liveLink": "https://pulse-chat-six.vercel.app/", 
-    "category": "Full Stack - Desktop & Mobile",
-    "features": [
-      "Real-time Messaging",
-      "Typing Indicators",
-      "Online Status Tracking",
-      "Dark Mode Support",
-      "Smooth UI Animations",
-      "Responsive Layout"
-    ]
   }
+  
   ],
 
   "categories": [

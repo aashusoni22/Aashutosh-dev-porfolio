@@ -1,0 +1,57 @@
+[
+    {
+      "title": "Frontend Developer",
+      "company": "CJ Jewellers",
+      "period": "Feb 2025 - Present",
+      "location": "Remote",
+      "description":
+        "Designed and developed a fully responsive e-commerce platform using React.js, HTML5, CSS3, and JavaScript. Built reusable UI components, integrated REST APIs for real-time product and order management, and implemented authentication and client-side routing. Performed code reviews, debugging, and production issue triaging to maintain a scalable, modular codebase.",
+      "skills": [
+        "React",
+        "JavaScript",
+        "REST APIs",
+        "Responsive Design",
+        "Authentication",
+        "Unit Testing (Jest)",
+        "Code Reviews"
+      ],
+      "icon": "Code",
+      "current": true
+    },
+    {
+      "title": "IT Support Specialist",
+      "company": "Transcom (Apple)",
+      "period": "Feb 2024 - Present",
+      "location": "Remote",
+      "description":
+        "Delivered Tier-2 technical troubleshooting for complex software, cloud services, and hardware issues. Performed root-cause analysis, error monitoring, and system diagnostics to resolve production incidents efficiently. Created detailed technical documentation and collaborated with backend and product teams for escalations. Gained exposure to API behavior, incident triaging, and cloud systems error monitoring.",
+      "skills": [
+        "Technical Support",
+        "Root-Cause Analysis",
+        "System Diagnostics",
+        "API Behavior",
+        "Cloud Systems Monitoring",
+        "Documentation",
+        "Incident Triaging"
+      ],
+      "icon": "Wrench",
+      "current": true
+    },
+    {
+      "title": "Technical Support Specialist",
+      "company": "Foundever (Intuit)",
+      "period": "Nov 2022 - Dec 2023",
+      "location": "Remote",
+      "description":
+        "Provided technical support for Profile (software) users, maintaining a 90% first-call resolution rate. Documented common issues and solutions in the internal knowledge base. Collaborated with team members to improve support processes.",
+      "skills": [
+        "Technical Support",
+        "Profile software",
+        "Problem Solving",
+        "Documentation",
+        "Customer Service"
+      ],
+      "icon": "Building2",
+      "current": false
+    }
+  ]

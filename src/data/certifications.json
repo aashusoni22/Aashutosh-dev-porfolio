@@ -1,0 +1,43 @@
+[
+    {
+        "title": "Frontend Developer (React)",
+        "issuer": "HackerRank",
+        "date": "May 2024",
+        "credentialId": "34356029b3f1",
+        "description": "Mastered React.js, HTML, CSS, and JavaScript for building interactive web applications.",
+        "skills": [
+          "React",
+          "JavaScript",
+          "HTML/CSS"         
+        ],
+        "icon": "ShieldCheck"
+      },
+      {
+        "title": "Meta Front-End Developer Professional Certificate",
+        "issuer": "Meta",
+        "date": "February 2024",
+        "credentialId": "META-789012",
+        "description":
+          "Mastered front-end development skills including HTML, CSS, JavaScript, React, and responsive design principles.",
+        "skills": ["React", "JavaScript", "HTML/CSS", "Responsive Design", "UI/UX"],
+        "icon": "ShieldCheck"
+      },
+      {
+        "title": "Google Data Analytics Professional Certificate",
+        "issuer": "Google",
+        "date": "Spet 2022",
+        "credentialId": "17b43670367bc080219a6cfa75aa52b3",
+        "description":
+          "Acquired skills in data analysis, visualization, and reporting using Google Analytics and Google Data Studio.",
+        "skills": [
+        "SQL",
+        "MYSQL",
+          "Data Analysis",
+          "Data Cleaning",
+          "Data Visualization",
+          "Google Data Studio"
+        ],
+        "icon": "ShieldCheck"
+      }
+  ]
+  

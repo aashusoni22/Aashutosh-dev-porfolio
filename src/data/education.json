@@ -1,0 +1,17 @@
+[
+  { 
+        "degree": "Bachelor of Computer Science",
+        "institution": "Algoma University",
+        "period": "2019 - 2021",
+        "location": "Sault Ste. Marie, Ontario, Canada",
+        "description": "Specialized in modern web technologies, software architecture, and application development. Completed multiple collaborative software projects and capstone initiatives. Built strong foundations in frontend frameworks, cloud computing, and agile methodologies.",
+       "achievements": [
+      "Completed multiple collaborative software projects and capstone initiatives",
+      "Specialized in modern web technologies, software architecture, and application development",
+      "Built strong foundations in frontend frameworks, cloud computing, and agile methodologies"
+
+
+    ],
+        "icon": "GraduationCap"   
+  }
+]

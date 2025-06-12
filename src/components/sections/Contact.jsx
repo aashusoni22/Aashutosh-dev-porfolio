@@ -1,13 +1,27 @@
 import React, { useContext, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, LazyMotion, domAnimation } from "framer-motion";
 import { ThemeContext } from "../../context/ThemeContext";
-import { Mail, MapPin, Send, Loader, Linkedin } from "lucide-react";
+import {
+  Mail,
+  MapPin,
+  Send,
+  Loader,
+  Linkedin,
+  Github,
+  ArrowUpRight,
+} from "lucide-react";
+import { fadeIn, staggerContainer } from "../../utils/animations";
 
 const Contact = () => {
   const { theme } = useContext(ThemeContext);
   const isDarkMode = theme === "dark";
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState({ type: "", message: "" });
+  const [submitStatus, setSubmitStatus] = useState(null);
 
   const contactInfo = [
     {
@@ -23,6 +37,12 @@ const Contact = () => {
       href: "https://www.linkedin.com/in/soni2205/",
     },
     {
+      icon: Github,
+      title: "GitHub",
+      value: "@aashusoni22",
+      href: "https://github.com/aashusoni22",
+    },
+    {
       icon: MapPin,
       title: "Location",
       value: "Toronto, Canada",
@@ -30,14 +50,22 @@ const Contact = () => {
     },
   ];
 
+  const socialLinks = [
+    { icon: Github, href: "https://github.com/aashusoni22", label: "GitHub" },
+    {
+      icon: Linkedin,
+      href: "https://www.linkedin.com/in/soni2205/",
+      label: "LinkedIn",
+    },
+  ];
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setSubmitStatus({ type: "", message: "" });
+    setSubmitStatus(null);
 
     try {
       await new Promise((resolve) => setTimeout(resolve, 1000));
-
       setSubmitStatus({
         type: "success",
         message: "Message sent successfully! I'll get back to you soon.",
@@ -53,203 +81,322 @@ const Contact = () => {
     }
   };
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
   return (
-    <section id="contact" className={`${isDarkMode ? "bg-black" : "bg-white"}`}>
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="space-y-12">
+    <LazyMotion features={domAnimation}>
+      <section
+        id="contact"
+        className={`py-24 ${isDarkMode ? "bg-black" : "bg-white"}`}
+      >
+        <div className="max-w-7xl mx-auto px-6 md:px-8">
           {/* Header */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="space-y-4"
+            variants={staggerContainer(0.1, 0)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-100px" }}
+            className="text-center max-w-3xl mx-auto mb-20"
           >
-            <span
-              className={`inline-block px-4 py-1.5 rounded-full text-sm font-medium
-              ${
-                isDarkMode
-                  ? "bg-zinc-900 text-teal-400"
-                  : "bg-zinc-100 text-teal-600"
+            <motion.span
+              variants={fadeIn("up", 0)}
+              className={`px-4 py-1.5 rounded-full text-xs font-medium tracking-wider uppercase ${
+                isDarkMode ? "bg-white/10" : "bg-zinc-100"
+              } backdrop-blur-md text-primary-400 ring-1 ${
+                isDarkMode ? "ring-white/20" : "ring-zinc-200"
               }`}
             >
               Contact
-            </span>
-            <h2
-              className={`text-3xl font-bold ${
+            </motion.span>
+
+            <motion.h2
+              variants={fadeIn("up", 0.1)}
+              className={`mt-6 text-5xl font-display font-bold tracking-tight ${
                 isDarkMode ? "text-white" : "text-zinc-900"
               }`}
             >
-              Get in Touch
-            </h2>
-            <p
-              className={`max-w-2xl ${
+              Let's Connect
+            </motion.h2>
+
+            <motion.p
+              variants={fadeIn("up", 0.2)}
+              className={`mt-6 text-lg ${
                 isDarkMode ? "text-zinc-400" : "text-zinc-600"
               }`}
             >
-              Have a project in mind or want to discuss opportunities? Feel free
-              to reach out.
-            </p>
+              Have a project in mind or want to discuss potential opportunities?
+              I'd love to hear from you.
+            </motion.p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-10">
+          <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Info */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="space-y-6"
+              variants={staggerContainer(0.1, 0)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: "-100px" }}
+              className="space-y-8"
             >
-              {contactInfo.map((info, index) => (
-                <motion.a
-                  key={info.title}
-                  href={info.href}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className={`flex items-center gap-4 p-4 rounded-lg ${
-                    isDarkMode
-                      ? "bg-zinc-900/50 ring-1 ring-zinc-800 hover:bg-zinc-900"
-                      : "bg-zinc-50 ring-1 ring-zinc-200 hover:bg-zinc-100"
-                  } transition-colors`}
-                  target="_blank"
+              <div
+                className={`p-8 rounded-2xl ${
+                  isDarkMode ? "bg-white/5" : "bg-zinc-50"
+                } backdrop-blur-md border ${
+                  isDarkMode ? "border-white/10" : "border-zinc-200"
+                }`}
+              >
+                <h3
+                  className={`text-xl font-semibold ${
+                    isDarkMode ? "text-white" : "text-zinc-900"
+                  }`}
                 >
-                  <div
-                    className={`p-2 rounded-lg ${
-                      isDarkMode ? "bg-zinc-800" : "bg-zinc-200"
-                    }`}
-                  >
-                    <info.icon
-                      className={`w-5 h-5 ${
-                        isDarkMode ? "text-teal-400" : "text-teal-600"
-                      }`}
-                    />
-                  </div>
-                  <div>
-                    <p
-                      className={`text-sm font-medium ${
-                        isDarkMode ? "text-zinc-300" : "text-zinc-900"
-                      }`}
+                  Get in Touch
+                </h3>
+                <p
+                  className={`mt-2 ${
+                    isDarkMode ? "text-zinc-400" : "text-zinc-600"
+                  }`}
+                >
+                  Feel free to reach out through any of these channels. I'll get
+                  back to you as soon as possible.
+                </p>
+
+                <div className="mt-6 space-y-4">
+                  {contactInfo.map((item) => (
+                    <a
+                      key={item.title}
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`flex items-center gap-3 p-3 rounded-lg ${
+                        isDarkMode
+                          ? "hover:bg-white/5 text-zinc-300 hover:text-white"
+                          : "hover:bg-zinc-100 text-zinc-600 hover:text-zinc-900"
+                      } transition-colors`}
                     >
-                      {info.title}
-                    </p>
-                    <p
-                      className={isDarkMode ? "text-zinc-400" : "text-zinc-600"}
+                      <div
+                        className={`p-2 rounded-lg ${
+                          isDarkMode ? "bg-white/10" : "bg-zinc-100"
+                        }`}
+                      >
+                        <item.icon
+                          className={`w-5 h-5 ${
+                            isDarkMode ? "text-primary-400" : "text-primary-600"
+                          }`}
+                        />
+                      </div>
+                      <div>
+                        <p className="text-sm font-medium">{item.title}</p>
+                        <p
+                          className={`text-sm ${
+                            isDarkMode ? "text-zinc-400" : "text-zinc-500"
+                          }`}
+                        >
+                          {item.value}
+                        </p>
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              </div>
+
+              <div
+                className={`p-8 rounded-2xl ${
+                  isDarkMode ? "bg-white/5" : "bg-zinc-50"
+                } backdrop-blur-md border ${
+                  isDarkMode ? "border-white/10" : "border-zinc-200"
+                }`}
+              >
+                <h3
+                  className={`text-xl font-semibold ${
+                    isDarkMode ? "text-white" : "text-zinc-900"
+                  }`}
+                >
+                  Connect on Social
+                </h3>
+                <p
+                  className={`mt-2 ${
+                    isDarkMode ? "text-zinc-400" : "text-zinc-600"
+                  }`}
+                >
+                  Follow me on social media to stay updated with my latest
+                  projects and insights.
+                </p>
+
+                <div className="mt-6 flex flex-wrap gap-3">
+                  {socialLinks.map((link) => (
+                    <a
+                      key={link.label}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`p-3 rounded-lg ${
+                        isDarkMode
+                          ? "bg-white/5 hover:bg-white/10 text-zinc-300 hover:text-white"
+                          : "bg-zinc-100 hover:bg-zinc-200 text-zinc-600 hover:text-zinc-900"
+                      } transition-colors`}
                     >
-                      {info.value}
-                    </p>
-                  </div>
-                </motion.a>
-              ))}
+                      <link.icon className="w-5 h-5" />
+                    </a>
+                  ))}
+                </div>
+              </div>
             </motion.div>
 
             {/* Contact Form */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
+              variants={staggerContainer(0.1, 0)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: "-100px" }}
             >
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                  <label
-                    className={`block text-sm font-medium mb-1.5 ${
-                      isDarkMode ? "text-zinc-300" : "text-zinc-700"
-                    }`}
-                  >
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    required
-                    className={`w-full px-4 py-2.5 rounded-lg text-sm ${
-                      isDarkMode
-                        ? "bg-zinc-900/50 ring-1 ring-zinc-800 text-white focus:ring-teal-500"
-                        : "bg-zinc-50 ring-1 ring-zinc-200 focus:ring-teal-500"
-                    } focus:outline-none focus:ring-2 transition-shadow`}
-                  />
-                </div>
-                <div>
-                  <label
-                    className={`block text-sm font-medium mb-1.5 ${
-                      isDarkMode ? "text-zinc-300" : "text-zinc-700"
-                    }`}
-                  >
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    required
-                    className={`w-full px-4 py-2.5 rounded-lg text-sm ${
-                      isDarkMode
-                        ? "bg-zinc-900/50 ring-1 ring-zinc-800 text-white focus:ring-teal-500"
-                        : "bg-zinc-50 ring-1 ring-zinc-200 focus:ring-teal-500"
-                    } focus:outline-none focus:ring-2 transition-shadow`}
-                  />
-                </div>
-                <div>
-                  <label
-                    className={`block text-sm font-medium mb-1.5 ${
-                      isDarkMode ? "text-zinc-300" : "text-zinc-700"
-                    }`}
-                  >
-                    Message
-                  </label>
-                  <textarea
-                    name="message"
-                    required
-                    rows={4}
-                    className={`w-full px-4 py-2.5 rounded-lg text-sm ${
-                      isDarkMode
-                        ? "bg-zinc-900/50 ring-1 ring-zinc-800 text-white focus:ring-teal-500"
-                        : "bg-zinc-50 ring-1 ring-zinc-200 focus:ring-teal-500"
-                    } focus:outline-none focus:ring-2 transition-shadow`}
-                  />
-                </div>
-
-                {submitStatus.message && (
-                  <div
-                    className={`p-3 rounded-lg text-sm ${
-                      submitStatus.type === "success"
-                        ? isDarkMode
-                          ? "bg-green-950 text-green-400 ring-1 ring-green-900"
-                          : "bg-green-50 text-green-800 ring-1 ring-green-200"
-                        : isDarkMode
-                        ? "bg-red-950 text-red-400 ring-1 ring-red-900"
-                        : "bg-red-50 text-red-800 ring-1 ring-red-200"
-                    }`}
-                  >
-                    {submitStatus.message}
-                  </div>
-                )}
-
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className={`inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium ${
-                    isDarkMode
-                      ? "bg-teal-600 hover:bg-teal-500 text-white"
-                      : "bg-teal-600 hover:bg-teal-700 text-white"
-                  } transition-colors disabled:opacity-50 disabled:cursor-not-allowed`}
+              <div
+                className={`p-8 rounded-2xl ${
+                  isDarkMode ? "bg-white/5" : "bg-zinc-50"
+                } backdrop-blur-md border ${
+                  isDarkMode ? "border-white/10" : "border-zinc-200"
+                }`}
+              >
+                <h3
+                  className={`text-xl font-semibold ${
+                    isDarkMode ? "text-white" : "text-zinc-900"
+                  }`}
                 >
-                  {isSubmitting ? (
-                    <>
-                      <Loader className="w-4 h-4 animate-spin" />
-                      <span>Sending...</span>
-                    </>
-                  ) : (
-                    <>
-                      <span>Send Message</span>
-                      <Send className="w-4 h-4" />
-                    </>
+                  Send a Message
+                </h3>
+                <p
+                  className={`mt-2 ${
+                    isDarkMode ? "text-zinc-400" : "text-zinc-600"
+                  }`}
+                >
+                  Fill out the form below and I'll get back to you as soon as
+                  possible.
+                </p>
+
+                <form onSubmit={handleSubmit} className="mt-6 space-y-6">
+                  <div>
+                    <label
+                      htmlFor="name"
+                      className={`block text-sm font-medium ${
+                        isDarkMode ? "text-zinc-300" : "text-zinc-700"
+                      }`}
+                    >
+                      Name
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      className={`mt-1 block w-full rounded-lg border ${
+                        isDarkMode
+                          ? "border-white/10 bg-white/5 text-white placeholder-zinc-500"
+                          : "border-zinc-300 bg-white text-zinc-900 placeholder-zinc-400"
+                      } px-4 py-2.5 text-sm focus:border-primary-500 focus:ring-primary-500`}
+                      placeholder="Your name"
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="email"
+                      className={`block text-sm font-medium ${
+                        isDarkMode ? "text-zinc-300" : "text-zinc-700"
+                      }`}
+                    >
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      className={`mt-1 block w-full rounded-lg border ${
+                        isDarkMode
+                          ? "border-white/10 bg-white/5 text-white placeholder-zinc-500"
+                          : "border-zinc-300 bg-white text-zinc-900 placeholder-zinc-400"
+                      } px-4 py-2.5 text-sm focus:border-primary-500 focus:ring-primary-500`}
+                      placeholder="your.email@example.com"
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="message"
+                      className={`block text-sm font-medium ${
+                        isDarkMode ? "text-zinc-300" : "text-zinc-700"
+                      }`}
+                    >
+                      Message
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      required
+                      rows={4}
+                      className={`mt-1 block w-full rounded-lg border ${
+                        isDarkMode
+                          ? "border-white/10 bg-white/5 text-white placeholder-zinc-500"
+                          : "border-zinc-300 bg-white text-zinc-900 placeholder-zinc-400"
+                      } px-4 py-2.5 text-sm focus:border-primary-500 focus:ring-primary-500`}
+                      placeholder="Your message..."
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className={`w-full rounded-lg px-4 py-2.5 text-sm font-medium transition-all duration-300 ${
+                      isSubmitting
+                        ? isDarkMode
+                          ? "bg-white/10 text-zinc-400 cursor-not-allowed"
+                          : "bg-zinc-100 text-zinc-400 cursor-not-allowed"
+                        : isDarkMode
+                        ? "bg-primary-500 text-white hover:bg-primary-600"
+                        : "bg-primary-500 text-white hover:bg-primary-600"
+                    }`}
+                  >
+                    {isSubmitting ? (
+                      <span className="flex items-center justify-center gap-2">
+                        <Loader className="w-4 h-4 animate-spin" />
+                        Sending...
+                      </span>
+                    ) : (
+                      "Send Message"
+                    )}
+                  </button>
+
+                  {submitStatus && (
+                    <div
+                      className={`mt-4 rounded-lg p-4 text-sm ${
+                        submitStatus.type === "success"
+                          ? isDarkMode
+                            ? "bg-green-500/10 text-green-400"
+                            : "bg-green-50 text-green-600"
+                          : isDarkMode
+                          ? "bg-red-500/10 text-red-400"
+                          : "bg-red-50 text-red-600"
+                      }`}
+                    >
+                      {submitStatus.message}
+                    </div>
                   )}
-                </button>
-              </form>
+                </form>
+              </div>
             </motion.div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </LazyMotion>
   );
 };
 

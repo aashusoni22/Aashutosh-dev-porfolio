@@ -9,406 +9,296 @@ import {
   Layers,
   Users,
   Zap,
+  Star,
+  Eye,
+  Check,
+  SquareArrowOutUpRight,
 } from "lucide-react";
-import { motion } from "framer-motion";
+import {
+  motion,
+  AnimatePresence,
+  LazyMotion,
+  domAnimation,
+} from "framer-motion";
+import { fadeIn, staggerContainer } from "../../utils/animations";
 import projects from "../../data/projects.json";
+import ProjectCard from "../ui/ProjectCard";
 
 const { featuredProjects } = projects;
-
-import projectDetails from "../../data/projectDetails.json"; // ✅ Consider moving that big object here for separation of concerns
-
-const overlayVariants = {
-  open: { opacity: 1 },
-  closed: { opacity: 0 },
-};
-
-const panelVariants = {
-  open: { x: 0 },
-  closed: { x: "100%" },
-};
-
-const ProjectDetails = ({ project, isOpen, onClose, isDarkMode }) => {
-  if (!isOpen) return null;
-  const details = projectDetails[project.id];
-
-  const handleKeyDown = (e) => {
-    if (e.key === "Escape") onClose();
-  };
-
-  const textPrimary = isDarkMode ? "text-white" : "text-zinc-900";
-  const textSecondary = isDarkMode ? "text-zinc-300" : "text-zinc-600";
-  const cardBg = isDarkMode ? "bg-zinc-800/50" : "bg-zinc-50";
-
-  return (
-    <div
-      className="fixed inset-0 z-50 overflow-hidden"
-      onKeyDown={handleKeyDown}
-      tabIndex={-1}
-    >
-      <motion.div
-        initial="closed"
-        animate="open"
-        exit="closed"
-        variants={overlayVariants}
-        transition={{ duration: 0.3 }}
-        className="absolute inset-0 bg-black/60 backdrop-blur-sm"
-        onClick={onClose}
-      />
-      <motion.div
-        initial="closed"
-        animate="open"
-        exit="closed"
-        variants={panelVariants}
-        transition={{ type: "spring", stiffness: 200, damping: 30 }}
-        className={`absolute inset-y-0 right-0 w-full md:w-2/3 lg:w-3/5 transform ${
-          isDarkMode ? "bg-zinc-900" : "bg-white"
-        }`}
-      >
-        <button
-          onClick={onClose}
-          className="absolute right-6 top-6 z-50 p-2 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md transition-all"
-        >
-          <X className="w-5 h-5 text-white" />
-        </button>
-
-        <div className="h-full overflow-y-auto">
-          {/* Hero */}
-          <div className="relative h-[40vh] md:h-[50vh]">
-            <img
-              src={project.image}
-              alt={project.title}
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/20" />
-            <div className="absolute bottom-0 p-8">
-              <span
-                className={`inline-block px-3 py-1 text-sm rounded-full ${
-                  isDarkMode
-                    ? "bg-zinc-800 text-teal-400"
-                    : "bg-white/90 text-teal-600"
-                }`}
-              >
-                {project.category}
-              </span>
-              <h2 className="text-4xl font-bold text-white mt-3">
-                {project.title}
-              </h2>
-            </div>
-          </div>
-
-          {/* Content */}
-          <div className="p-8 space-y-12">
-            {/* Overview */}
-            <div className="space-y-4">
-              <h3 className={`text-2xl font-semibold ${textPrimary}`}>
-                Project Overview
-              </h3>
-              <p className={`text-lg leading-relaxed ${textSecondary}`}>
-                {details.overview}
-              </p>
-
-              {/* Links */}
-              <div className="flex flex-wrap gap-4">
-                {project.githubLink && (
-                  <a
-                    href={project.githubLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`flex items-center gap-2 px-4 py-2 rounded-lg transition ${
-                      isDarkMode
-                        ? "bg-zinc-800 text-white"
-                        : "bg-zinc-100 text-zinc-900"
-                    } hover:ring-1 hover:ring-teal-500`}
-                  >
-                    <Github className="w-5 h-5" />
-                    View Code
-                  </a>
-                )}
-                {project.liveLink && (
-                  <a
-                    href={project.liveLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-4 py-2 rounded-lg bg-teal-500 hover:bg-teal-600 text-white"
-                  >
-                    <ExternalLink className="w-5 h-5" />
-                    Live Demo
-                  </a>
-                )}
-              </div>
-            </div>
-
-            {/* Key Features */}
-            <div className="space-y-4">
-              <h3 className={`text-2xl font-semibold ${textPrimary}`}>
-                Key Features
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {Object.entries(details.keyFeatures).map(([title, desc]) => (
-                  <div key={title} className={`p-4 rounded-lg ${cardBg}`}>
-                    <h4 className={`font-medium mb-2 ${textPrimary}`}>
-                      {title}
-                    </h4>
-                    <p className={`text-sm ${textSecondary}`}>{desc}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Technical Implementation */}
-            <div className="space-y-4">
-              <h3 className={`text-2xl font-semibold ${textPrimary}`}>
-                Technical Implementation
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {Object.entries(details.technicalDetails).map(([key, val]) => (
-                  <div
-                    key={key}
-                    className={`flex gap-3 p-4 rounded-lg ${cardBg}`}
-                  >
-                    <div className="p-2 rounded-lg bg-teal-500/10">
-                      <Code className="w-5 h-5 text-teal-500" />
-                    </div>
-                    <div>
-                      <h4 className={`font-medium ${textPrimary}`}>{key}</h4>
-                      <p className={`text-sm ${textSecondary}`}>{val}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Tech Stack */}
-            <div className="space-y-4">
-              <h3 className={`text-2xl font-semibold ${textPrimary}`}>
-                Technical Stack
-              </h3>
-              <div className="flex flex-wrap gap-3">
-                {project.tech.map((tech) => (
-                  <span
-                    key={tech}
-                    className={`px-4 py-2 rounded-lg text-sm font-medium ${
-                      isDarkMode
-                        ? "bg-zinc-800 text-teal-400 ring-1 ring-zinc-700"
-                        : "bg-teal-50 text-teal-700 ring-1 ring-teal-100"
-                    }`}
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            {/* Challenges */}
-            <div className="space-y-4">
-              <h3 className={`text-2xl font-semibold ${textPrimary}`}>
-                Challenges & Solutions
-              </h3>
-              {details.challenges.map((item, i) => (
-                <div key={i} className={`flex gap-3 p-4 rounded-lg ${cardBg}`}>
-                  <div className="w-2 h-2 mt-2 rounded-full bg-teal-500" />
-                  <p className={textSecondary}>{item}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </motion.div>
-    </div>
-  );
-};
-const ProjectCard = ({ project, isDarkMode }) => {
-  const [showDetails, setShowDetails] = useState(false);
-
-  return (
-    <>
-      <div
-        className="group h-full cursor-pointer"
-        onClick={() => setShowDetails(true)}
-      >
-        <div
-          className={`relative h-full rounded-xl overflow-hidden transition-all duration-300 ${
-            isDarkMode
-              ? "bg-zinc-900/50 ring-1 ring-zinc-800 hover:ring-teal-500/50"
-              : "bg-zinc-50 ring-1 ring-zinc-200 hover:ring-teal-500/30"
-          }`}
-        >
-          <div className="relative aspect-[16/9] overflow-hidden">
-            <img
-              src={project.image}
-              alt={project.title}
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <div className="absolute bottom-4 left-4 right-4">
-                <span className="inline-flex items-center text-white gap-1 text-sm font-medium">
-                  View Details <ArrowUpRight className="w-4 h-4" />
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <div className="p-4 space-y-3">
-            <div>
-              <div className="flex justify-between items-center">
-                <h3
-                  className={`text-base font-medium group-hover:text-teal-500 transition-colors ${
-                    isDarkMode ? "text-white" : "text-zinc-900"
-                  }`}
-                >
-                  {project.title}
-                </h3>
-                <span
-                  className={`text-xs px-2 py-0.5 rounded-full ${
-                    isDarkMode
-                      ? "bg-zinc-800 text-teal-400"
-                      : "bg-teal-50 text-teal-700"
-                  }`}
-                >
-                  {project.category}
-                </span>
-              </div>
-              <p
-                className={`mt-2 text-sm ${
-                  isDarkMode ? "text-zinc-400" : "text-zinc-600"
-                }`}
-              >
-                {project.description}
-              </p>
-            </div>
-
-            {/* Technologies */}
-            <div className="flex flex-wrap gap-1.5">
-              {project.tech.slice(0, 5).map((tech) => (
-                <span
-                  key={tech}
-                  className={`px-2 py-0.5 text-xs rounded-full transition-colors ${
-                    isDarkMode
-                      ? "bg-zinc-800 text-teal-400 ring-1 ring-zinc-700"
-                      : "bg-teal-50 text-teal-700 ring-1 ring-teal-100"
-                  }`}
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-
-            {/* Features */}
-            <div className="pt-2">
-              <ul className="grid grid-cols-2 gap-1">
-                {project.features.map((feature) => (
-                  <li
-                    key={feature}
-                    className={`text-xs ${
-                      isDarkMode ? "text-zinc-400" : "text-zinc-600"
-                    }`}
-                  >
-                    • {feature}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <ProjectDetails
-        project={project}
-        isOpen={showDetails}
-        onClose={() => setShowDetails(false)}
-        isDarkMode={isDarkMode}
-      />
-    </>
-  );
-};
 
 const Projects = () => {
   const { theme } = useContext(ThemeContext);
   const isDarkMode = theme === "dark";
+  const [selectedProject, setSelectedProject] = useState(null);
 
   return (
-    <section
-      id="projects"
-      className={`${isDarkMode ? "bg-black" : "bg-white"}`}
-    >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="space-y-12">
+    <LazyMotion features={domAnimation}>
+      <section
+        id="projects"
+        className={`py-24 ${isDarkMode ? "bg-black" : "bg-white"}`}
+      >
+        <div className="max-w-7xl mx-auto px-6 md:px-8">
           {/* Header */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="space-y-4"
+            variants={staggerContainer(0.1, 0)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-100px" }}
+            className="text-center max-w-3xl mx-auto mb-20"
           >
-            <span
-              className={`inline-block px-4 py-1.5 rounded-full text-sm font-medium
-              ${
-                isDarkMode
-                  ? "bg-zinc-900 text-teal-400"
-                  : "bg-teal-50 text-teal-600"
+            <motion.span
+              variants={fadeIn("up", 0)}
+              className={`px-4 py-1.5 rounded-full text-xs font-medium tracking-wider uppercase ${
+                isDarkMode ? "bg-white/10" : "bg-zinc-100"
+              } backdrop-blur-md text-primary-400 ring-1 ${
+                isDarkMode ? "ring-white/20" : "ring-zinc-200"
               }`}
             >
               Projects
-            </span>
-            <h2
-              className={`text-3xl font-bold ${
+            </motion.span>
+
+            <motion.h2
+              variants={fadeIn("up", 0.1)}
+              className={`mt-6 text-5xl font-display font-bold tracking-tight ${
                 isDarkMode ? "text-white" : "text-zinc-900"
               }`}
             >
               Featured Work
-            </h2>
-            <p
-              className={`max-w-2xl ${
+            </motion.h2>
+
+            <motion.p
+              variants={fadeIn("up", 0.2)}
+              className={`mt-6 text-lg ${
                 isDarkMode ? "text-zinc-400" : "text-zinc-600"
               }`}
             >
-              A selection of my recent full-stack applications and frontend
-              projects.
-            </p>
+              A collection of my recent projects showcasing my expertise in
+              frontend development, UI/UX design, and full-stack solutions.
+            </motion.p>
           </motion.div>
 
-          {/* Projects Grid - 3 columns on large screens */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {featuredProjects.map((project, index) => (
-              <motion.div
-                key={project.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <ProjectCard project={project} isDarkMode={isDarkMode} />
-              </motion.div>
-            ))}
-          </div>
-
-          {/* View More Link */}
+          {/* Projects Grid */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="flex justify-center pt-4"
+            variants={staggerContainer(0.1, 0)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-100px" }}
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
           >
-            <a
-              href="https://github.com/aashusoni22?tab=repositories"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`group inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium transition-colors
-                ${
-                  isDarkMode
-                    ? "bg-teal-500 text-white hover:bg-teal-400"
-                    : "bg-teal-600 text-white hover:bg-teal-700"
-                }`}
-            >
-              View More Projects
-              <ArrowUpRight className="w-4 h-4 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform" />
-            </a>
+            {featuredProjects.map((project, index) => (
+              <ProjectCard
+                key={project.title}
+                project={project}
+                index={index}
+                isDarkMode={isDarkMode}
+                onClick={() => setSelectedProject(project)}
+              />
+            ))}
           </motion.div>
+
+          {/* Project Details Modal */}
+          <AnimatePresence>
+            {selectedProject && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+                onClick={() => setSelectedProject(null)}
+              >
+                <motion.div
+                  initial={{ scale: 0.95, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  exit={{ scale: 0.95, opacity: 0 }}
+                  transition={{ type: "spring", duration: 0.5 }}
+                  className={`relative w-full max-w-4xl rounded-2xl ${
+                    isDarkMode ? "bg-zinc-900" : "bg-white"
+                  } shadow-2xl overflow-hidden`}
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  {/* Modal Header */}
+                  <div
+                    className={`p-6 border-b ${
+                      isDarkMode ? "border-white/10" : "border-zinc-200"
+                    }`}
+                  >
+                    <div className="flex items-start justify-between">
+                      <div>
+                        <h3
+                          className={`text-2xl font-bold ${
+                            isDarkMode ? "text-white" : "text-zinc-900"
+                          }`}
+                        >
+                          {selectedProject.title}
+                        </h3>
+                        <p
+                          className={`mt-1 ${
+                            isDarkMode ? "text-zinc-400" : "text-zinc-600"
+                          }`}
+                        >
+                          {selectedProject.description}
+                        </p>
+                      </div>
+                      <button
+                        onClick={() => setSelectedProject(null)}
+                        className={`p-2 rounded-lg ${
+                          isDarkMode
+                            ? "hover:bg-white/10 text-zinc-400 hover:text-white"
+                            : "hover:bg-zinc-100 text-zinc-600 hover:text-zinc-900"
+                        } transition-colors`}
+                      >
+                        <X className="w-5 h-5" />
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Modal Content */}
+                  <div className="p-6 space-y-6">
+                    {/* Project Image */}
+                    <div className="relative aspect-video rounded-xl overflow-hidden">
+                      <img
+                        src={selectedProject.image}
+                        alt={selectedProject.title}
+                        className="object-cover w-full h-full"
+                      />
+                    </div>
+
+                    {/* Project Details */}
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div className="space-y-4">
+                        <div>
+                          <h4
+                            className={`text-sm font-medium ${
+                              isDarkMode ? "text-zinc-400" : "text-zinc-600"
+                            }`}
+                          >
+                            Technologies Used
+                          </h4>
+                          <div className="mt-2 flex flex-wrap gap-2">
+                            {selectedProject.tech.map((tech) => (
+                              <span
+                                key={tech}
+                                className={`px-3 py-1 rounded-full text-sm ${
+                                  isDarkMode
+                                    ? "bg-white/5 text-primary-400 ring-1 ring-white/10"
+                                    : "bg-zinc-100 text-primary-600 ring-1 ring-zinc-200"
+                                }`}
+                              >
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+
+                        <div>
+                          <h4
+                            className={`text-sm font-medium ${
+                              isDarkMode ? "text-zinc-400" : "text-zinc-600"
+                            }`}
+                          >
+                            Key Features
+                          </h4>
+                          <ul
+                            className={`mt-2 space-y-2 ${
+                              isDarkMode ? "text-zinc-300" : "text-zinc-700"
+                            }`}
+                          >
+                            {selectedProject.features.map((feature) => (
+                              <li
+                                key={feature}
+                                className="flex items-start gap-2"
+                              >
+                                <Check className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
+                                <span>{feature}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+
+                      <div className="space-y-4">
+                        <div>
+                          <h4
+                            className={`text-sm font-medium ${
+                              isDarkMode ? "text-zinc-400" : "text-zinc-600"
+                            }`}
+                          >
+                            Project Overview
+                          </h4>
+                          <p
+                            className={`mt-2 ${
+                              isDarkMode ? "text-zinc-300" : "text-zinc-700"
+                            }`}
+                          >
+                            {selectedProject.overview}
+                          </p>
+                        </div>
+
+                        <div>
+                          <h4
+                            className={`text-sm font-medium ${
+                              isDarkMode ? "text-zinc-400" : "text-zinc-600"
+                            }`}
+                          >
+                            My Role
+                          </h4>
+                          <p
+                            className={`mt-2 ${
+                              isDarkMode ? "text-zinc-300" : "text-zinc-700"
+                            }`}
+                          >
+                            {selectedProject.role}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Project Links */}
+                    <div className="flex flex-wrap gap-4 pt-6 border-t border-zinc-200">
+                      {selectedProject.links?.map((link) => (
+                        <a
+                          key={link.label}
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
+                            link.type === "primary"
+                              ? isDarkMode
+                                ? "bg-primary-500 text-white hover:bg-primary-600"
+                                : "bg-primary-500 text-white hover:bg-primary-600"
+                              : isDarkMode
+                              ? "bg-white/5 text-zinc-300 hover:bg-white/10 hover:text-white"
+                              : "bg-zinc-100 text-zinc-700 hover:bg-zinc-200 hover:text-zinc-900"
+                          }`}
+                        >
+                          {link.icon}
+                          {link.label}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              </motion.div>
+            )}
+            <div className="flex justify-center mt-8">
+              <button
+                onClick={() =>
+                  window.open("https://github.com/aashusoni22", "_blank")
+                }
+                className="inline-flex items-center gap-2 p-4 rounded-lg text-sm font-medium transition-all duration-300 bg-white/5 text-white hover:bg-white/10 hover:text-white hover:bg-primary-600"
+              >
+                More projects on GitHub
+                <SquareArrowOutUpRight
+                  className="w-4 h-4"
+                  aria-hidden
+                  strokeWidth={2.5}
+                />
+              </button>
+            </div>
+          </AnimatePresence>
         </div>
-      </div>
-    </section>
+      </section>
+    </LazyMotion>
   );
 };
 

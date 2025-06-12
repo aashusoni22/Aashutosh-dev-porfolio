@@ -1,0 +1,37 @@
+[{
+    "id": "pulse-chat",
+    "title": "Pulse Chat App",
+    "description": "A modern real-time chat application with online status, typing indicators, dark mode, and smooth animations.",
+    "image": "/pulse-chat.png",
+    "tech": ["React", "TypeScript", "Vite", "Tailwind CSS", "Framer Motion", "Firebase", "React Icons"],
+    "githubLink": "https://github.com/aashusoni22/Pulse-real-time-chat",
+    "liveLink": "https://pulse-chat-six.vercel.app/", 
+    "category": "Full Stack - Desktop & Mobile",
+    "features": [
+      "Real-time Messaging",
+      "Typing Indicators",
+      "Online Status Tracking",
+      "Dark Mode Support",
+      "Smooth UI Animations",
+      "Responsive Layout"
+    ]
+  },
+
+  {
+      "id": "snapcast",
+      "title": "SnapCast",
+      "description": "A full-stack video sharing platform with real-time recording, video streaming, and advanced analytics.",
+      "image": "/snapcast.png",
+      "tech": ["Next.js", "TypeScript", "Tailwind CSS", "PostgreSQL", "Drizzle ORM", "Bunny.net", "Arcjet"],
+      "githubLink": "https://github.com/aashusoni22/snapcast",
+      "liveLink": "https://snapcast-eight.vercel.app/",
+      "category": "Full Stack - Desktop & Mobile",
+      "features": [
+        "Video Upload & Record",
+        "Real-time Streaming",
+        "Privacy Controls",
+        "View Analytics",
+        "Custom Thumbnails",
+        "Advanced Security"
+      ]
+    }]

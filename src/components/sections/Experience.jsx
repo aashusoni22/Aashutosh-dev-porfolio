@@ -1,208 +1,295 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { motion, LazyMotion, domAnimation } from "framer-motion";
 import { ThemeContext } from "../../context/ThemeContext";
-import { Building2, Code, Wrench, Calendar } from "lucide-react";
-import { fadeIn, slideIn, staggerContainer } from "../../utils/animations";
+import {
+  Building2,
+  Code,
+  Wrench,
+  Calendar,
+  GraduationCap,
+  Award,
+  Briefcase,
+  MapPin,
+  ShieldCheck,
+} from "lucide-react";
+import { fadeIn, staggerContainer } from "../../utils/animations";
+import education from "../../data/education.json";
+import certifications from "../../data/certifications.json";
+import experiences from "../../data/experiences.json";
 
 const Experience = () => {
   const { theme } = useContext(ThemeContext);
   const isDarkMode = theme === "dark";
+  const [activeTab, setActiveTab] = useState("experience");
 
-  const experiences = [
-    {
-      title: "Frontend Developer",
-      company: "CJ Jewellers",
-      period: "Feb 2025 - Present",
-      description:
-        "Designed and developed a fully responsive e-commerce platform using React.js, HTML5, CSS3, and JavaScript. Built reusable UI components, integrated REST APIs for real-time product and order management, and implemented authentication and client-side routing. Performed code reviews, debugging, and production issue triaging to maintain a scalable, modular codebase.",
-      skills: [
-        "React",
-        "JavaScript",
-        "REST APIs",
-        "Responsive Design",
-        "Authentication",
-        "Unit Testing (Jest)",
-        "Code Reviews",
-      ],
-      icon: Code,
-      current: true,
-    },
-    {
-      title: "IT Support Specialist",
-      company: "Transcom (Apple)",
-      period: "Feb 2024 - Present",
-      description:
-        "Delivered Tier-2 technical troubleshooting for complex software, cloud services, and hardware issues. Performed root-cause analysis, error monitoring, and system diagnostics to resolve production incidents efficiently. Created detailed technical documentation and collaborated with backend and product teams for escalations. Gained exposure to API behavior, incident triaging, and cloud systems error monitoring.",
-      skills: [
-        "Technical Support",
-        "Root-Cause Analysis",
-        "System Diagnostics",
-        "API Behavior",
-        "Cloud Systems Monitoring",
-        "Documentation",
-        "Incident Triaging",
-      ],
-      icon: Wrench,
-      current: true,
-    },
-
-    {
-      title: "Technical Support Specialist",
-      company: "Foundever (Intuit)",
-      period: "Nov 2022 - Dec 2023",
-      description:
-        "Provided technical support for Profile (software) users, maintaining a 90% first-call resolution rate. Documented common issues and solutions in the internal knowledge base. Collaborated with team members to improve support processes.",
-      skills: [
-        "Technical Support",
-        "Profile software",
-        "Problem Solving",
-        "Documentation",
-        "Customer Service",
-      ],
-      icon: Building2,
-      current: false,
-    },
+  const tabs = [
+    { id: "experience", label: "Experience", icon: Briefcase },
+    { id: "education", label: "Education", icon: GraduationCap },
+    { id: "certifications", label: "Certifications", icon: ShieldCheck },
   ];
+
+  const renderContent = () => {
+    switch (activeTab) {
+      case "experience":
+        return (
+          <div className="space-y-6">
+            {experiences.map((exp, index) => (
+              <motion.div
+                key={index}
+                variants={fadeIn("up", index * 0.1)}
+                className="group relative"
+              >
+                <div className="hidden md:block absolute -left-4 top-0 bottom-0 w-px bg-white/10 group-hover:bg-primary-500/50 transition-colors duration-300" />
+                <div className="hidden md:block absolute -left-5 top-0 w-2 h-2 rounded-full bg-primary-500/50 group-hover:bg-primary-500 transition-colors duration-300" />
+
+                <div className="md:pl-8">
+                  <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 hover:border-primary-500/50 transition-all duration-300">
+                    <div className="flex items-start justify-between mb-4">
+                      <div>
+                        <h4 className="text-xl font-semibold text-white">
+                          {exp.title}
+                        </h4>
+                        <p className="text-primary-400">{exp.company}</p>
+                      </div>
+                      {exp.current && (
+                        <span className="px-3 py-1 rounded-full text-xs font-medium bg-primary-500/10 text-primary-400 ring-1 ring-primary-500/20">
+                          Current
+                        </span>
+                      )}
+                    </div>
+
+                    <div className="flex items-center gap-4 text-sm text-zinc-400 mb-4">
+                      <div className="flex items-center gap-1">
+                        <Calendar className="w-4 h-4" />
+                        {exp.period}
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <MapPin className="w-4 h-4" />
+                        {exp.location}
+                      </div>
+                    </div>
+
+                    <p className="text-zinc-400 mb-4">{exp.description}</p>
+
+                    <div className="flex flex-wrap gap-2">
+                      {exp.skills.map((skill) => (
+                        <span
+                          key={skill}
+                          className="px-3 py-1 rounded-full text-sm bg-white/5 text-primary-400 ring-1 ring-white/10"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        );
+
+      case "education":
+        return (
+          <div className="space-y-6">
+            {education.map((edu, index) => (
+              <motion.div
+                key={index}
+                variants={fadeIn("up", index * 0.1)}
+                className="group relative"
+              >
+                <div className="hidden md:block absolute -left-4 top-0 bottom-0 w-px bg-white/10 group-hover:bg-primary-500/50 transition-colors duration-300" />
+                <div className="hidden md:block absolute -left-5 top-0 w-2 h-2 rounded-full bg-primary-500/50 group-hover:bg-primary-500 transition-colors duration-300" />
+
+                <div className="pl-8">
+                  <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 hover:border-primary-500/50 transition-all duration-300">
+                    <div className="mb-4">
+                      <h4 className="text-xl font-semibold text-white">
+                        {edu.degree}
+                      </h4>
+                      <p className="text-primary-400">{edu.institution}</p>
+                    </div>
+
+                    <div className="flex items-center gap-4 text-sm text-zinc-400 mb-4">
+                      <div className="flex items-center gap-1">
+                        <Calendar className="w-4 h-4" />
+                        {edu.period}
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <MapPin className="w-4 h-4" />
+                        {edu.location}
+                      </div>
+                    </div>
+
+                    <p className="text-zinc-400 mb-4">{edu.description}</p>
+
+                    <div className="space-y-2">
+                      {edu.achievements.map((achievement, i) => (
+                        <div
+                          key={i}
+                          className="flex items-center gap-2 text-sm text-zinc-400"
+                        >
+                          <Award className="w-4 h-4 text-primary-400" />
+                          {achievement}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        );
+
+      case "certifications":
+        return (
+          <div className="grid md:grid-cols-2 gap-6">
+            {certifications.map((cert, index) => (
+              <motion.div
+                key={index}
+                variants={fadeIn("up", index * 0.1)}
+                className="group"
+              >
+                <div className="h-full p-6 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 hover:border-primary-500/50 transition-all duration-300">
+                  <div className="flex items-start gap-4 mb-4">
+                    <div className="p-3 rounded-xl bg-primary-500/10">
+                      <cert.icon className="w-6 h-6 text-primary-400" />
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-semibold text-white">
+                        {cert.title}
+                      </h4>
+                      <p className="text-primary-400">{cert.issuer}</p>
+                    </div>
+                  </div>
+
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-4 text-sm text-zinc-400">
+                      <div className="flex items-center gap-1">
+                        <Calendar className="w-4 h-4" />
+                        {cert.date}
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <Award className="w-4 h-4" />
+                        ID: {cert.credentialId}
+                      </div>
+                    </div>
+
+                    <p className="text-zinc-400">{cert.description}</p>
+
+                    <div className="flex flex-wrap gap-2">
+                      {cert.skills.map((skill) => (
+                        <span
+                          key={skill}
+                          className="px-3 py-1 rounded-full text-sm bg-white/5 text-primary-400 ring-1 ring-white/10"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        );
+
+      default:
+        return null;
+    }
+  };
 
   return (
     <LazyMotion features={domAnimation}>
-      <section className={`${isDarkMode ? "bg-black" : "bg-white"}`}>
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section
+        id="experience"
+        className={`py-24 ${isDarkMode ? "bg-black" : "bg-white"}`}
+      >
+        <div className="max-w-7xl mx-auto px-6 md:px-8">
+          {/* Header */}
           <motion.div
             variants={staggerContainer(0.1, 0)}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: "-100px" }}
-            className="space-y-12"
+            className="text-center max-w-3xl mx-auto mb-20"
           >
-            {/* Header */}
-            <motion.div variants={fadeIn("up", 0)} className="space-y-4 mb-16">
-              <span
-                className={`inline-block px-4 py-1.5 rounded-full text-sm font-medium
-                ${
-                  isDarkMode
-                    ? "bg-zinc-900 text-teal-400"
-                    : "bg-zinc-100 text-teal-600"
-                }`}
-              >
-                Experience
-              </span>
-              <h2
-                className={`text-3xl font-bold ${
-                  isDarkMode ? "text-white" : "text-zinc-900"
-                }`}
-              >
-                Professional Journey
-              </h2>
-              <p
-                className={`max-w-2xl ${
-                  isDarkMode ? "text-zinc-400" : "text-zinc-600"
-                }`}
-              >
-                A timeline of my professional experience and growth in software
-                development.
-              </p>
-            </motion.div>
+            <motion.span
+              variants={fadeIn("up", 0)}
+              className={`px-4 py-1.5 rounded-full text-xs font-medium tracking-wider uppercase ${
+                isDarkMode ? "bg-white/10" : "bg-zinc-100"
+              } backdrop-blur-md text-primary-400 ring-1 ${
+                isDarkMode ? "ring-white/20" : "ring-zinc-200"
+              }`}
+            >
+              Experience
+            </motion.span>
 
-            {/* Experience Timeline */}
-            <div className="space-y-8">
-              {experiences.map((experience, index) => (
-                <motion.div
-                  key={index}
-                  variants={fadeIn("up", 0)}
-                  className={`relative group rounded-2xl p-6 transition-all 
-                    ${
-                      isDarkMode
-                        ? "hover:bg-zinc-900/50 ring-1 ring-zinc-800"
-                        : "hover:bg-zinc-50 ring-1 ring-zinc-200"
-                    }
-                    hover:scale-[1.01] transform-gpu`}
+            <motion.h2
+              variants={fadeIn("up", 0.1)}
+              className={`mt-6 text-5xl font-display font-bold tracking-tight ${
+                isDarkMode ? "text-white" : "text-zinc-900"
+              }`}
+            >
+              My Journey
+            </motion.h2>
+
+            <motion.p
+              variants={fadeIn("up", 0.2)}
+              className={`mt-6 text-lg ${
+                isDarkMode ? "text-zinc-400" : "text-zinc-600"
+              }`}
+            >
+              A timeline of my professional experience, education, and
+              certifications that have shaped my career in web development.
+            </motion.p>
+          </motion.div>
+
+          {/* Tabs */}
+          <motion.div
+            variants={staggerContainer(0.1, 0)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-100px" }}
+            className="flex justify-center mb-12"
+          >
+            <div
+              className={`inline-flex p-1 rounded-xl ${
+                isDarkMode ? "bg-white/5" : "bg-zinc-100"
+              } backdrop-blur-md border ${
+                isDarkMode ? "border-white/10" : "border-zinc-200"
+              }`}
+            >
+              {tabs.map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
+                    activeTab === tab.id
+                      ? isDarkMode
+                        ? "bg-white/10 text-white"
+                        : "bg-white text-zinc-900 shadow-sm"
+                      : isDarkMode
+                      ? "text-zinc-400 hover:text-white"
+                      : "text-zinc-600 hover:text-zinc-900"
+                  }`}
                 >
-                  <div className="grid md:grid-cols-[1fr,2fr] gap-6">
-                    {/* Left Column */}
-                    <div>
-                      <div className="flex items-start gap-3">
-                        <div
-                          className={`p-2 rounded-lg ${
-                            isDarkMode ? "bg-zinc-800" : "bg-zinc-100"
-                          }`}
-                        >
-                          <experience.icon
-                            className={`w-5 h-5 ${
-                              isDarkMode ? "text-teal-400" : "text-teal-600"
-                            }`}
-                          />
-                        </div>
-                        <div>
-                          <h3
-                            className={`font-medium ${
-                              isDarkMode ? "text-white" : "text-zinc-900"
-                            }`}
-                          >
-                            {experience.title}
-                          </h3>
-                          <p
-                            className={`text-sm ${
-                              isDarkMode ? "text-zinc-400" : "text-zinc-600"
-                            }`}
-                          >
-                            {experience.company}
-                          </p>
-                        </div>
-                      </div>
-                      <div
-                        className={`mt-4 inline-flex items-center gap-2 text-sm ${
-                          isDarkMode ? "text-zinc-500" : "text-zinc-500"
-                        }`}
-                      >
-                        <Calendar className="w-4 h-4" />
-                        {experience.period}
-                        {experience.current && (
-                          <span
-                            className={`ml-2 px-2 py-0.5 text-xs rounded-full ${
-                              isDarkMode
-                                ? "bg-teal-400/10 text-teal-400"
-                                : "bg-teal-600/10 text-teal-600"
-                            }`}
-                          >
-                            Current
-                          </span>
-                        )}
-                      </div>
-                    </div>
-
-                    {/* Right Column */}
-                    <div className="space-y-4">
-                      <p
-                        className={`${
-                          isDarkMode ? "text-zinc-300" : "text-zinc-600"
-                        }`}
-                      >
-                        {experience.description}
-                      </p>
-                      <motion.div
-                        className="flex flex-wrap gap-2"
-                        variants={staggerContainer(0.05, 0.1)}
-                      >
-                        {experience.skills.map((skill) => (
-                          <motion.span
-                            key={skill}
-                            variants={fadeIn("up", 0)}
-                            className={`px-3 py-1 rounded-full text-[12px] ${
-                              isDarkMode
-                                ? "bg-zinc-800 text-teal-400 ring-1 ring-zinc-700"
-                                : "bg-zinc-100 text-teal-600"
-                            }`}
-                          >
-                            {skill}
-                          </motion.span>
-                        ))}
-                      </motion.div>
-                    </div>
-                  </div>
-                </motion.div>
+                  <tab.icon className="w-4 h-4" />
+                  <span className="hidden md:inline">{tab.label}</span>
+                </button>
               ))}
             </div>
+          </motion.div>
+
+          {/* Content */}
+          <motion.div
+            key={activeTab}
+            variants={staggerContainer(0.1, 0)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-100px" }}
+            className="relative"
+          >
+            {renderContent()}
           </motion.div>
         </div>
       </section>

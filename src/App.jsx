@@ -6,6 +6,7 @@ import About from "./components/sections/About";
 import Projects from "./components/sections/Projects";
 import Contact from "./components/sections/Contact";
 import Experience from "./components/sections/Experience";
+import { motion } from "framer-motion";
 
 const App = () => {
   const { theme } = useContext(ThemeContext);
@@ -18,32 +19,47 @@ const App = () => {
       }`}
     >
       <Layout>
-        {/* Main content sections */}
-        <main className="min-h-screen">
-          {/* Hero section */}
-          <section id="home">
-            <Hero />
-          </section>
+        <main className="relative">
+          {/* Background gradient */}
+          <div
+            className={`fixed inset-0 bg-gradient-to-b ${
+              isDarkMode
+                ? "from-black via-black to-zinc-900"
+                : "from-white via-zinc-50 to-zinc-100"
+            } -z-10`}
+          />
 
-          {/* About section */}
-          <section id="about" className="py-12">
-            <About />
-          </section>
+          {/* Main content sections */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            {/* Hero section */}
+            <section id="home">
+              <Hero />
+            </section>
 
-          {/* Experience section */}
-          <section id="experience" className="py-12">
-            <Experience />
-          </section>
+            {/* About section */}
+            <section id="about">
+              <About />
+            </section>
 
-          {/* Projects section */}
-          <section id="projects" className="py-12">
-            <Projects />
-          </section>
+            {/* Experience section */}
+            <section id="experience">
+              <Experience />
+            </section>
 
-          {/* Contact section */}
-          <section id="contact" className="py-12">
-            <Contact />
-          </section>
+            {/* Projects section */}
+            <section id="projects">
+              <Projects />
+            </section>
+
+            {/* Contact section */}
+            <section id="contact">
+              <Contact />
+            </section>
+          </motion.div>
         </main>
       </Layout>
     </div>
