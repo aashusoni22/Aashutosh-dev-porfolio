@@ -100,7 +100,7 @@ const Experience = () => {
                 <div className="hidden md:block absolute -left-4 top-0 bottom-0 w-px bg-white/10 group-hover:bg-primary-500/50 transition-colors duration-300" />
                 <div className="hidden md:block absolute -left-5 top-0 w-2 h-2 rounded-full bg-primary-500/50 group-hover:bg-primary-500 transition-colors duration-300" />
 
-                <div className="pl-8">
+                <div className="md:pl-8">
                   <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 hover:border-primary-500/50 transition-all duration-300">
                     <div className="mb-4">
                       <h4 className="text-xl font-semibold text-white">
@@ -149,7 +149,7 @@ const Experience = () => {
                 variants={fadeIn("up", index * 0.1)}
                 className="group"
               >
-                <div className="h-full p-6 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 hover:border-primary-500/50 transition-all duration-300">
+                <div className="h-full w-[22rem] p-6 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 hover:border-primary-500/50 transition-all duration-300">
                   <div className="flex items-start gap-4 mb-4">
                     <div className="p-3 rounded-xl bg-primary-500/10">
                       <cert.icon className="w-6 h-6 text-primary-400" />
@@ -163,15 +163,9 @@ const Experience = () => {
                   </div>
 
                   <div className="space-y-4">
-                    <div className="flex items-center gap-4 text-sm text-zinc-400">
-                      <div className="flex items-center gap-1">
-                        <Calendar className="w-4 h-4" />
-                        {cert.date}
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <Award className="w-4 h-4" />
-                        ID: {cert.credentialId}
-                      </div>
+                    <div className="flex items-center gap-1 text-sm text-zinc-400">
+                      <Calendar className="w-4 h-4" />
+                      {cert.date}
                     </div>
 
                     <p className="text-zinc-400">{cert.description}</p>
@@ -263,7 +257,7 @@ const Experience = () => {
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
+                  className={`flex items-center gap-2 px-6 md:px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
                     activeTab === tab.id
                       ? isDarkMode
                         ? "bg-white/10 text-white"
@@ -273,7 +267,7 @@ const Experience = () => {
                       : "text-zinc-600 hover:text-zinc-900"
                   }`}
                 >
-                  <tab.icon className="w-4 h-4" />
+                  <tab.icon className="md:w-4 md:h-4" />
                   <span className="hidden md:inline">{tab.label}</span>
                 </button>
               ))}
